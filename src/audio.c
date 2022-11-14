@@ -10,7 +10,7 @@ void pwm_init(void)
         .output_pins = {SPEAKER_OUT, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED},
         .base_clock = NRF_PWM_CLK_16MHz,
         .count_mode = NRF_PWM_MODE_UP,
-        .top_value = NRF_CLOCK_FREQUENCY / SAMPLING_FREQUENCY,
+        .top_value = COUNTERTOP,
         .load_mode = NRF_PWM_LOAD_COMMON,
         .step_mode = NRF_PWM_STEP_AUTO};
     nrfx_pwm_init(&PWM_INST, &pwm_config, NULL);
