@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "stdbool.h": "c",
+        "string_view": "c",
+        "stdint.h": "c",
+        "cstdint": "c",
+        "nrfx_saadc.h": "c",
+        "nrfx_pwm.h": "c",
+        "microbit_v2.h": "c",
+        "clap.h": "c",
+        "audio.h": "c",
+        "nrf_delay.h": "c",
+        "constants.h": "c",
+        "stdint-gcc.h": "c"
+    }
+}
