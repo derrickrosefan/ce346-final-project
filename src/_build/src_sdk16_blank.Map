@@ -1277,7 +1277,7 @@ Linker script and memory map
                 0x000000000007b000                __start_ot_flash_data = (__stop_ot_flash_data - (FLASH_PAGE_SIZE * FLASH_DATA_PAGES_USED))
                 0x0000000000000001                ASSERT ((__start_ot_flash_data >= (__etext + SIZEOF (.data))), Error: Code overlaps flash data area.)
 
-.text           0x0000000000000000     0xeec8
+.text           0x0000000000000000     0xef78
  *(.isr_vector)
  .isr_vector    0x0000000000000000      0x200 _build/gcc_startup_nrf52833.os
                 0x0000000000000000                __isr_vector
@@ -1296,707 +1296,709 @@ Linker script and memory map
  .text.play_audio_sample
                 0x00000000000002e8       0x84 _build/audio.o
                 0x00000000000002e8                play_audio_sample
+ .text.nrf_gpio_pin_port_decode
+                0x000000000000036c       0x30 _build/main.o
  .text.startup.main
-                0x000000000000036c       0x38 _build/main.o
-                0x000000000000036c                main
+                0x000000000000039c       0x98 _build/main.o
+                0x000000000000039c                main
  .text.nrf_gpio_pin_port_decode
-                0x00000000000003a4       0x30 _build/better_error_handling.o
+                0x0000000000000434       0x30 _build/better_error_handling.o
  .text.nrf_gpio_pin_clear
-                0x00000000000003d4       0x1a _build/better_error_handling.o
+                0x0000000000000464       0x1a _build/better_error_handling.o
  .text.nrf_gpio_pin_set
-                0x00000000000003ee       0x1a _build/better_error_handling.o
+                0x000000000000047e       0x1a _build/better_error_handling.o
  .text.nrf_delay_ms.part.0
-                0x0000000000000408       0x1c _build/better_error_handling.o
+                0x0000000000000498       0x1c _build/better_error_handling.o
  .text.error_blink_pattern
-                0x0000000000000424      0x104 _build/better_error_handling.o
+                0x00000000000004b4      0x104 _build/better_error_handling.o
  .text.app_error_fault_handler
-                0x0000000000000528       0x74 _build/better_error_handling.o
-                0x0000000000000528                app_error_fault_handler
+                0x00000000000005b8       0x74 _build/better_error_handling.o
+                0x00000000000005b8                app_error_fault_handler
  .text.HardFault_process
-                0x000000000000059c        0x6 _build/better_error_handling.o
-                0x000000000000059c                HardFault_process
- *fill*         0x00000000000005a2        0x2 
+                0x000000000000062c        0x6 _build/better_error_handling.o
+                0x000000000000062c                HardFault_process
+ *fill*         0x0000000000000632        0x2 
  .text.startup.called_first
-                0x00000000000005a4       0x48 _build/microbit_before_startup.o
-                0x00000000000005a4                called_first
+                0x0000000000000634       0x48 _build/microbit_before_startup.o
+                0x0000000000000634                called_first
  .text.nrf_log_backend_uart_flush
-                0x00000000000005ec        0x2 _build/microbit_nrf_log_backend_uart.o
- *fill*         0x00000000000005ee        0x2 
+                0x000000000000067c        0x2 _build/microbit_nrf_log_backend_uart.o
+ *fill*         0x000000000000067e        0x2 
  .text.nrf_log_backend_uart_put
-                0x00000000000005f0       0x1c _build/microbit_nrf_log_backend_uart.o
+                0x0000000000000680       0x1c _build/microbit_nrf_log_backend_uart.o
  .text.uart_init.constprop.0
-                0x000000000000060c       0x54 _build/microbit_nrf_log_backend_uart.o
+                0x000000000000069c       0x54 _build/microbit_nrf_log_backend_uart.o
  .text.serial_tx
-                0x0000000000000660       0x50 _build/microbit_nrf_log_backend_uart.o
+                0x00000000000006f0       0x50 _build/microbit_nrf_log_backend_uart.o
  .text.nrf_log_backend_uart_panic_set
-                0x00000000000006b0       0x2c _build/microbit_nrf_log_backend_uart.o
+                0x0000000000000740       0x2c _build/microbit_nrf_log_backend_uart.o
  .text.nrf_log_backend_uart_init
-                0x00000000000006dc        0x4 _build/microbit_nrf_log_backend_uart.o
-                0x00000000000006dc                nrf_log_backend_uart_init
- .text._write   0x00000000000006e0       0x2c _build/microbit_retarget.o
-                0x00000000000006e0                _write
- .text._read    0x000000000000070c       0x30 _build/microbit_retarget.o
-                0x000000000000070c                _read
+                0x000000000000076c        0x4 _build/microbit_nrf_log_backend_uart.o
+                0x000000000000076c                nrf_log_backend_uart_init
+ .text._write   0x0000000000000770       0x2c _build/microbit_retarget.o
+                0x0000000000000770                _write
+ .text._read    0x000000000000079c       0x30 _build/microbit_retarget.o
+                0x000000000000079c                _read
  .text.app_error_handler
-                0x000000000000073c       0x1a _build/app_error_handler_gcc.o
-                0x000000000000073c                app_error_handler
- *fill*         0x0000000000000756        0x2 
+                0x00000000000007cc       0x1a _build/app_error_handler_gcc.o
+                0x00000000000007cc                app_error_handler
+ *fill*         0x00000000000007e6        0x2 
  .text.nrfx_coredep_delay_us.part.0.constprop.0
-                0x0000000000000758       0x10 _build/app_timer.o
+                0x00000000000007e8       0x10 _build/app_timer.o
  .text.RTC1_IRQHandler
-                0x0000000000000768       0x9c _build/app_timer.o
-                0x0000000000000768                RTC1_IRQHandler
+                0x00000000000007f8       0x9c _build/app_timer.o
+                0x00000000000007f8                RTC1_IRQHandler
  .text.SWI0_EGU0_IRQHandler
-                0x0000000000000804      0x2b8 _build/app_timer.o
-                0x0000000000000804                SWI0_EGU0_IRQHandler
+                0x0000000000000894      0x2b8 _build/app_timer.o
+                0x0000000000000894                SWI0_EGU0_IRQHandler
  .text.app_util_disable_irq
-                0x0000000000000abc       0x10 _build/app_util_platform.o
-                0x0000000000000abc                app_util_disable_irq
+                0x0000000000000b4c       0x10 _build/app_util_platform.o
+                0x0000000000000b4c                app_util_disable_irq
  .text.app_util_enable_irq
-                0x0000000000000acc       0x14 _build/app_util_platform.o
-                0x0000000000000acc                app_util_enable_irq
+                0x0000000000000b5c       0x14 _build/app_util_platform.o
+                0x0000000000000b5c                app_util_enable_irq
  .text.privilege_level_get
-                0x0000000000000ae0       0x1a _build/app_util_platform.o
-                0x0000000000000ae0                privilege_level_get
- *fill*         0x0000000000000afa        0x2 
+                0x0000000000000b70       0x1a _build/app_util_platform.o
+                0x0000000000000b70                privilege_level_get
+ *fill*         0x0000000000000b8a        0x2 
  .text.app_util_critical_region_enter
-                0x0000000000000afc       0x20 _build/app_util_platform.o
-                0x0000000000000afc                app_util_critical_region_enter
+                0x0000000000000b8c       0x20 _build/app_util_platform.o
+                0x0000000000000b8c                app_util_critical_region_enter
  .text.app_util_critical_region_exit
-                0x0000000000000b1c       0x20 _build/app_util_platform.o
-                0x0000000000000b1c                app_util_critical_region_exit
+                0x0000000000000bac       0x20 _build/app_util_platform.o
+                0x0000000000000bac                app_util_critical_region_exit
  .text.HardFault_Handler
-                0x0000000000000b3c       0x34 _build/hardfault_handler_gcc.o
-                0x0000000000000b3c                HardFault_Handler
+                0x0000000000000bcc       0x34 _build/hardfault_handler_gcc.o
+                0x0000000000000bcc                HardFault_Handler
  .text.HardFault_c_handler
-                0x0000000000000b70      0x104 _build/hardfault_implementation.o
-                0x0000000000000b70                HardFault_c_handler
+                0x0000000000000c00      0x104 _build/hardfault_implementation.o
+                0x0000000000000c00                HardFault_c_handler
  .text.assert_nrf_callback
-                0x0000000000000c74       0x1a _build/nrf_assert.o
-                0x0000000000000c74                assert_nrf_callback
+                0x0000000000000d04       0x1a _build/nrf_assert.o
+                0x0000000000000d04                assert_nrf_callback
  .text.nrf_atomic_u32_fetch_store
-                0x0000000000000c8e       0x16 _build/nrf_atomic.o
-                0x0000000000000c8e                nrf_atomic_u32_fetch_store
+                0x0000000000000d1e       0x16 _build/nrf_atomic.o
+                0x0000000000000d1e                nrf_atomic_u32_fetch_store
  .text.nrf_atomic_u32_or
-                0x0000000000000ca4       0x18 _build/nrf_atomic.o
-                0x0000000000000ca4                nrf_atomic_u32_or
+                0x0000000000000d34       0x18 _build/nrf_atomic.o
+                0x0000000000000d34                nrf_atomic_u32_or
  .text.nrf_atomic_u32_fetch_and
-                0x0000000000000cbc       0x18 _build/nrf_atomic.o
-                0x0000000000000cbc                nrf_atomic_u32_fetch_and
+                0x0000000000000d4c       0x18 _build/nrf_atomic.o
+                0x0000000000000d4c                nrf_atomic_u32_fetch_and
  .text.nrf_atomic_u32_add
-                0x0000000000000cd4       0x18 _build/nrf_atomic.o
-                0x0000000000000cd4                nrf_atomic_u32_add
+                0x0000000000000d64       0x18 _build/nrf_atomic.o
+                0x0000000000000d64                nrf_atomic_u32_add
  .text.nrf_atomic_u32_sub
-                0x0000000000000cec       0x18 _build/nrf_atomic.o
-                0x0000000000000cec                nrf_atomic_u32_sub
+                0x0000000000000d7c       0x18 _build/nrf_atomic.o
+                0x0000000000000d7c                nrf_atomic_u32_sub
  .text.nrf_atomic_flag_set
-                0x0000000000000d04        0x6 _build/nrf_atomic.o
-                0x0000000000000d04                nrf_atomic_flag_set
+                0x0000000000000d94        0x6 _build/nrf_atomic.o
+                0x0000000000000d94                nrf_atomic_flag_set
  .text.nrf_atomic_flag_clear_fetch
-                0x0000000000000d0a        0x6 _build/nrf_atomic.o
-                0x0000000000000d0a                nrf_atomic_flag_clear_fetch
+                0x0000000000000d9a        0x6 _build/nrf_atomic.o
+                0x0000000000000d9a                nrf_atomic_flag_clear_fetch
  .text.nrf_balloc_init
-                0x0000000000000d10       0x7c _build/nrf_balloc.o
-                0x0000000000000d10                nrf_balloc_init
+                0x0000000000000da0       0x7c _build/nrf_balloc.o
+                0x0000000000000da0                nrf_balloc_init
  .text.nrf_balloc_alloc
-                0x0000000000000d8c       0x54 _build/nrf_balloc.o
-                0x0000000000000d8c                nrf_balloc_alloc
+                0x0000000000000e1c       0x54 _build/nrf_balloc.o
+                0x0000000000000e1c                nrf_balloc_alloc
  .text.nrf_balloc_free
-                0x0000000000000de0       0x48 _build/nrf_balloc.o
-                0x0000000000000de0                nrf_balloc_free
+                0x0000000000000e70       0x48 _build/nrf_balloc.o
+                0x0000000000000e70                nrf_balloc_free
  .text.uarte_evt_handler
-                0x0000000000000e28       0x34 _build/nrf_drv_uart.o
+                0x0000000000000eb8       0x34 _build/nrf_drv_uart.o
  .text.uart_evt_handler
-                0x0000000000000e5c       0x34 _build/nrf_drv_uart.o
+                0x0000000000000eec       0x34 _build/nrf_drv_uart.o
  .text.nrf_drv_uart_init
-                0x0000000000000e90       0x7c _build/nrf_drv_uart.o
-                0x0000000000000e90                nrf_drv_uart_init
+                0x0000000000000f20       0x7c _build/nrf_drv_uart.o
+                0x0000000000000f20                nrf_drv_uart_init
  .text.nrf_fprintf_buffer_flush
-                0x0000000000000f0c       0x24 _build/nrf_fprintf.o
-                0x0000000000000f0c                nrf_fprintf_buffer_flush
+                0x0000000000000f9c       0x24 _build/nrf_fprintf.o
+                0x0000000000000f9c                nrf_fprintf_buffer_flush
  .text.nrf_fprintf
-                0x0000000000000f30       0x54 _build/nrf_fprintf.o
-                0x0000000000000f30                nrf_fprintf
+                0x0000000000000fc0       0x54 _build/nrf_fprintf.o
+                0x0000000000000fc0                nrf_fprintf
  .text.buffer_add
-                0x0000000000000f84       0x1e _build/nrf_fprintf_format.o
- *fill*         0x0000000000000fa2        0x2 
+                0x0000000000001014       0x1e _build/nrf_fprintf_format.o
+ *fill*         0x0000000000001032        0x2 
  .text.unsigned_print
-                0x0000000000000fa4       0xb4 _build/nrf_fprintf_format.o
+                0x0000000000001034       0xb4 _build/nrf_fprintf_format.o
  .text.nrf_fprintf_fmt
-                0x0000000000001058      0x2d0 _build/nrf_fprintf_format.o
-                0x0000000000001058                nrf_fprintf_fmt
+                0x00000000000010e8      0x2d0 _build/nrf_fprintf_format.o
+                0x00000000000010e8                nrf_fprintf_fmt
  .text.nrf_log_backend_serial_put
-                0x0000000000001328       0xc2 _build/nrf_log_backend_serial.o
-                0x0000000000001328                nrf_log_backend_serial_put
- *fill*         0x00000000000013ea        0x2 
+                0x00000000000013b8       0xc2 _build/nrf_log_backend_serial.o
+                0x00000000000013b8                nrf_log_backend_serial_put
+ *fill*         0x000000000000147a        0x2 
  .text.nrf_log_default_backends_init
-                0x00000000000013ec       0x30 _build/nrf_log_default_backends.o
-                0x00000000000013ec                nrf_log_default_backends_init
+                0x000000000000147c       0x30 _build/nrf_log_default_backends.o
+                0x000000000000147c                nrf_log_default_backends_init
  .text.invalid_packets_omit
-                0x000000000000141c       0x3a _build/nrf_log_frontend.o
- *fill*         0x0000000000001456        0x2 
+                0x00000000000014ac       0x3a _build/nrf_log_frontend.o
+ *fill*         0x00000000000014e6        0x2 
  .text.buf_prealloc
-                0x0000000000001458      0x144 _build/nrf_log_frontend.o
+                0x00000000000014e8      0x144 _build/nrf_log_frontend.o
  .text.nrf_log_init
-                0x000000000000159c       0x3c _build/nrf_log_frontend.o
-                0x000000000000159c                nrf_log_init
+                0x000000000000162c       0x3c _build/nrf_log_frontend.o
+                0x000000000000162c                nrf_log_init
  .text.nrf_log_module_name_get
-                0x00000000000015d8       0x38 _build/nrf_log_frontend.o
-                0x00000000000015d8                nrf_log_module_name_get
+                0x0000000000001668       0x38 _build/nrf_log_frontend.o
+                0x0000000000001668                nrf_log_module_name_get
  .text.nrf_log_color_id_get
-                0x0000000000001610       0x2c _build/nrf_log_frontend.o
-                0x0000000000001610                nrf_log_color_id_get
+                0x00000000000016a0       0x2c _build/nrf_log_frontend.o
+                0x00000000000016a0                nrf_log_color_id_get
  .text.buffer_is_empty
-                0x000000000000163c       0x14 _build/nrf_log_frontend.o
-                0x000000000000163c                buffer_is_empty
+                0x00000000000016cc       0x14 _build/nrf_log_frontend.o
+                0x00000000000016cc                buffer_is_empty
  .text.nrf_log_frontend_dequeue
-                0x0000000000001650      0x224 _build/nrf_log_frontend.o
-                0x0000000000001650                nrf_log_frontend_dequeue
- .text.std_n    0x0000000000001874       0xb8 _build/nrf_log_frontend.o
+                0x00000000000016e0      0x224 _build/nrf_log_frontend.o
+                0x00000000000016e0                nrf_log_frontend_dequeue
+ .text.std_n    0x0000000000001904       0xb8 _build/nrf_log_frontend.o
  .text.nrf_log_frontend_std_0
-                0x000000000000192c        0x8 _build/nrf_log_frontend.o
-                0x000000000000192c                nrf_log_frontend_std_0
+                0x00000000000019bc        0x8 _build/nrf_log_frontend.o
+                0x00000000000019bc                nrf_log_frontend_std_0
  .text.nrf_log_frontend_std_1
-                0x0000000000001934       0x12 _build/nrf_log_frontend.o
-                0x0000000000001934                nrf_log_frontend_std_1
+                0x00000000000019c4       0x12 _build/nrf_log_frontend.o
+                0x00000000000019c4                nrf_log_frontend_std_1
  .text.nrf_log_frontend_std_3
-                0x0000000000001946       0x18 _build/nrf_log_frontend.o
-                0x0000000000001946                nrf_log_frontend_std_3
+                0x00000000000019d6       0x18 _build/nrf_log_frontend.o
+                0x00000000000019d6                nrf_log_frontend_std_3
  .text.nrf_log_frontend_std_4
-                0x000000000000195e       0x1c _build/nrf_log_frontend.o
-                0x000000000000195e                nrf_log_frontend_std_4
- *fill*         0x000000000000197a        0x2 
+                0x00000000000019ee       0x1c _build/nrf_log_frontend.o
+                0x00000000000019ee                nrf_log_frontend_std_4
+ *fill*         0x0000000000001a0a        0x2 
  .text.nrf_log_backend_add
-                0x000000000000197c       0x54 _build/nrf_log_frontend.o
-                0x000000000000197c                nrf_log_backend_add
+                0x0000000000001a0c       0x54 _build/nrf_log_frontend.o
+                0x0000000000001a0c                nrf_log_backend_add
  .text.nrf_log_panic
-                0x00000000000019d0       0x28 _build/nrf_log_frontend.o
-                0x00000000000019d0                nrf_log_panic
+                0x0000000000001a60       0x28 _build/nrf_log_frontend.o
+                0x0000000000001a60                nrf_log_panic
  .text.prefix_process
-                0x00000000000019f8       0x7c _build/nrf_log_str_formatter.o
+                0x0000000000001a88       0x7c _build/nrf_log_str_formatter.o
  .text.postfix_process
-                0x0000000000001a74       0x44 _build/nrf_log_str_formatter.o
+                0x0000000000001b04       0x44 _build/nrf_log_str_formatter.o
  .text.nrf_log_std_entry_process
-                0x0000000000001ab8       0xc8 _build/nrf_log_str_formatter.o
-                0x0000000000001ab8                nrf_log_std_entry_process
+                0x0000000000001b48       0xc8 _build/nrf_log_str_formatter.o
+                0x0000000000001b48                nrf_log_std_entry_process
  .text.nrf_log_hexdump_entry_process
-                0x0000000000001b80       0xc0 _build/nrf_log_str_formatter.o
-                0x0000000000001b80                nrf_log_hexdump_entry_process
+                0x0000000000001c10       0xc0 _build/nrf_log_str_formatter.o
+                0x0000000000001c10                nrf_log_hexdump_entry_process
  .text.memobj_op
-                0x0000000000001c40       0xa8 _build/nrf_memobj.o
+                0x0000000000001cd0       0xa8 _build/nrf_memobj.o
  .text.nrf_memobj_pool_init
-                0x0000000000001ce8        0x4 _build/nrf_memobj.o
-                0x0000000000001ce8                nrf_memobj_pool_init
+                0x0000000000001d78        0x4 _build/nrf_memobj.o
+                0x0000000000001d78                nrf_memobj_pool_init
  .text.nrf_memobj_free
-                0x0000000000001cec       0x2c _build/nrf_memobj.o
-                0x0000000000001cec                nrf_memobj_free
+                0x0000000000001d7c       0x2c _build/nrf_memobj.o
+                0x0000000000001d7c                nrf_memobj_free
  .text.nrf_memobj_alloc
-                0x0000000000001d18       0x5e _build/nrf_memobj.o
-                0x0000000000001d18                nrf_memobj_alloc
+                0x0000000000001da8       0x5e _build/nrf_memobj.o
+                0x0000000000001da8                nrf_memobj_alloc
  .text.nrf_memobj_get
-                0x0000000000001d76        0x8 _build/nrf_memobj.o
-                0x0000000000001d76                nrf_memobj_get
+                0x0000000000001e06        0x8 _build/nrf_memobj.o
+                0x0000000000001e06                nrf_memobj_get
  .text.nrf_memobj_put
-                0x0000000000001d7e       0x1c _build/nrf_memobj.o
-                0x0000000000001d7e                nrf_memobj_put
- *fill*         0x0000000000001d9a        0x2 
+                0x0000000000001e0e       0x1c _build/nrf_memobj.o
+                0x0000000000001e0e                nrf_memobj_put
+ *fill*         0x0000000000001e2a        0x2 
  .text.nrf_memobj_write
-                0x0000000000001d9c       0x28 _build/nrf_memobj.o
-                0x0000000000001d9c                nrf_memobj_write
+                0x0000000000001e2c       0x28 _build/nrf_memobj.o
+                0x0000000000001e2c                nrf_memobj_write
  .text.nrf_memobj_read
-                0x0000000000001dc4       0x28 _build/nrf_memobj.o
-                0x0000000000001dc4                nrf_memobj_read
+                0x0000000000001e54       0x28 _build/nrf_memobj.o
+                0x0000000000001e54                nrf_memobj_read
  .text.nrf_ringbuf_init
-                0x0000000000001dec       0x1c _build/nrf_ringbuf.o
-                0x0000000000001dec                nrf_ringbuf_init
+                0x0000000000001e7c       0x1c _build/nrf_ringbuf.o
+                0x0000000000001e7c                nrf_ringbuf_init
  .text.nrf_strerror_find
-                0x0000000000001e08       0x3c _build/nrf_strerror.o
-                0x0000000000001e08                nrf_strerror_find
+                0x0000000000001e98       0x3c _build/nrf_strerror.o
+                0x0000000000001e98                nrf_strerror_find
  .text.nrf_strerror_get
-                0x0000000000001e44       0x14 _build/nrf_strerror.o
-                0x0000000000001e44                nrf_strerror_get
+                0x0000000000001ed4       0x14 _build/nrf_strerror.o
+                0x0000000000001ed4                nrf_strerror_get
  .text.POWER_CLOCK_IRQHandler
-                0x0000000000001e58       0x5c _build/nrfx_clock.o
-                0x0000000000001e58                POWER_CLOCK_IRQHandler
+                0x0000000000001ee8       0x5c _build/nrfx_clock.o
+                0x0000000000001ee8                POWER_CLOCK_IRQHandler
  .text.nrf_gpiote_event_clear
-                0x0000000000001eb4       0x18 _build/nrfx_gpiote.o
+                0x0000000000001f44       0x18 _build/nrfx_gpiote.o
  .text.nrf_bitmask_bit_set
-                0x0000000000001ecc       0x14 _build/nrfx_gpiote.o
+                0x0000000000001f5c       0x14 _build/nrfx_gpiote.o
  .text.nrf_gpio_pin_port_decode
-                0x0000000000001ee0       0x30 _build/nrfx_gpiote.o
+                0x0000000000001f70       0x30 _build/nrfx_gpiote.o
  .text.nrf_gpio_cfg_sense_set
-                0x0000000000001f10       0x2e _build/nrfx_gpiote.o
- *fill*         0x0000000000001f3e        0x2 
+                0x0000000000001fa0       0x2e _build/nrfx_gpiote.o
+ *fill*         0x0000000000001fce        0x2 
  .text.nrf_gpio_ports_read.constprop.0
-                0x0000000000001f40       0x18 _build/nrfx_gpiote.o
+                0x0000000000001fd0       0x18 _build/nrfx_gpiote.o
  .text.GPIOTE_IRQHandler
-                0x0000000000001f58      0x19c _build/nrfx_gpiote.o
-                0x0000000000001f58                GPIOTE_IRQHandler
+                0x0000000000001fe8      0x19c _build/nrfx_gpiote.o
+                0x0000000000001fe8                GPIOTE_IRQHandler
  .text.UARTE0_UART0_IRQHandler
-                0x00000000000020f4       0x20 _build/nrfx_prs.o
-                0x00000000000020f4                UARTE0_UART0_IRQHandler
+                0x0000000000002184       0x20 _build/nrfx_prs.o
+                0x0000000000002184                UARTE0_UART0_IRQHandler
  .text.nrfx_prs_acquire
-                0x0000000000002114       0x44 _build/nrfx_prs.o
-                0x0000000000002114                nrfx_prs_acquire
+                0x00000000000021a4       0x44 _build/nrfx_prs.o
+                0x00000000000021a4                nrfx_prs_acquire
  .text.nrfx_prs_release
-                0x0000000000002158       0x28 _build/nrfx_prs.o
-                0x0000000000002158                nrfx_prs_release
+                0x00000000000021e8       0x28 _build/nrfx_prs.o
+                0x00000000000021e8                nrfx_prs_release
  .text.nrf_pwm_event_clear
-                0x0000000000002180       0x10 _build/nrfx_pwm.o
+                0x0000000000002210       0x10 _build/nrfx_pwm.o
  .text.start_playback
-                0x0000000000002190       0x4c _build/nrfx_pwm.o
+                0x0000000000002220       0x4c _build/nrfx_pwm.o
  .text.nrf_gpio_pin_port_decode
-                0x00000000000021dc       0x30 _build/nrfx_pwm.o
+                0x000000000000226c       0x30 _build/nrfx_pwm.o
  .text.nrf_pwm_sequence_set
-                0x000000000000220c       0x88 _build/nrfx_pwm.o
+                0x000000000000229c       0x88 _build/nrfx_pwm.o
  .text.nrfx_pwm_init
-                0x0000000000002294      0x1b8 _build/nrfx_pwm.o
-                0x0000000000002294                nrfx_pwm_init
+                0x0000000000002324      0x1b8 _build/nrfx_pwm.o
+                0x0000000000002324                nrfx_pwm_init
  .text.nrfx_pwm_simple_playback
-                0x000000000000244c       0xa4 _build/nrfx_pwm.o
-                0x000000000000244c                nrfx_pwm_simple_playback
+                0x00000000000024dc       0xa4 _build/nrfx_pwm.o
+                0x00000000000024dc                nrfx_pwm_simple_playback
  .text.PWM0_IRQHandler
-                0x00000000000024f0       0x90 _build/nrfx_pwm.o
-                0x00000000000024f0                PWM0_IRQHandler
+                0x0000000000002580       0x90 _build/nrfx_pwm.o
+                0x0000000000002580                PWM0_IRQHandler
  .text.nrf_saadc_event_clear
-                0x0000000000002580       0x18 _build/nrfx_saadc.o
+                0x0000000000002610       0x18 _build/nrfx_saadc.o
  .text.SAADC_IRQHandler
-                0x0000000000002598      0x154 _build/nrfx_saadc.o
-                0x0000000000002598                SAADC_IRQHandler
+                0x0000000000002628      0x154 _build/nrfx_saadc.o
+                0x0000000000002628                SAADC_IRQHandler
  .text.nrf_gpio_pin_port_decode
-                0x00000000000026ec       0x30 _build/nrfx_spim.o
+                0x000000000000277c       0x30 _build/nrfx_spim.o
  .text.nrf_gpio_pin_clear
-                0x000000000000271c       0x1a _build/nrfx_spim.o
+                0x00000000000027ac       0x1a _build/nrfx_spim.o
  .text.nrf_gpio_pin_set
-                0x0000000000002736       0x1a _build/nrfx_spim.o
+                0x00000000000027c6       0x1a _build/nrfx_spim.o
  .text.SPIM2_SPIS2_SPI2_IRQHandler
-                0x0000000000002750       0x64 _build/nrfx_spim.o
-                0x0000000000002750                SPIM2_SPIS2_SPI2_IRQHandler
+                0x00000000000027e0       0x64 _build/nrfx_spim.o
+                0x00000000000027e0                SPIM2_SPIS2_SPI2_IRQHandler
  .text.irq_handler.constprop.0
-                0x00000000000027b4       0x4c _build/nrfx_timer.o
+                0x0000000000002844       0x4c _build/nrfx_timer.o
  .text.TIMER0_IRQHandler
-                0x0000000000002800       0x10 _build/nrfx_timer.o
-                0x0000000000002800                TIMER0_IRQHandler
+                0x0000000000002890       0x10 _build/nrfx_timer.o
+                0x0000000000002890                TIMER0_IRQHandler
  .text.TIMER1_IRQHandler
-                0x0000000000002810       0x10 _build/nrfx_timer.o
-                0x0000000000002810                TIMER1_IRQHandler
+                0x00000000000028a0       0x10 _build/nrfx_timer.o
+                0x00000000000028a0                TIMER1_IRQHandler
  .text.nrf_twim_event_clear
-                0x0000000000002820       0x10 _build/nrfx_twim.o
+                0x00000000000028b0       0x10 _build/nrfx_twim.o
  .text.xfer_completeness_check
-                0x0000000000002830       0x6c _build/nrfx_twim.o
+                0x00000000000028c0       0x6c _build/nrfx_twim.o
  .text.twim_irq_handler
-                0x000000000000289c      0x138 _build/nrfx_twim.o
+                0x000000000000292c      0x138 _build/nrfx_twim.o
  .text.SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0_IRQHandler
-                0x00000000000029d4       0x10 _build/nrfx_twim.o
-                0x00000000000029d4                SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0_IRQHandler
+                0x0000000000002a64       0x10 _build/nrfx_twim.o
+                0x0000000000002a64                SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0_IRQHandler
  .text.SPIM1_SPIS1_TWIM1_TWIS1_SPI1_TWI1_IRQHandler
-                0x00000000000029e4       0x10 _build/nrfx_twim.o
-                0x00000000000029e4                SPIM1_SPIS1_TWIM1_TWIS1_SPI1_TWI1_IRQHandler
+                0x0000000000002a74       0x10 _build/nrfx_twim.o
+                0x0000000000002a74                SPIM1_SPIS1_TWIM1_TWIS1_SPI1_TWI1_IRQHandler
  .text.nrf_uart_event_clear
-                0x00000000000029f4       0x10 _build/nrfx_uart.o
- .text.tx_byte  0x0000000000002a04       0x1e _build/nrfx_uart.o
+                0x0000000000002a84       0x10 _build/nrfx_uart.o
+ .text.tx_byte  0x0000000000002a94       0x1e _build/nrfx_uart.o
  .text.rx_enable
-                0x0000000000002a22       0x20 _build/nrfx_uart.o
- *fill*         0x0000000000002a42        0x2 
+                0x0000000000002ab2       0x20 _build/nrfx_uart.o
+ *fill*         0x0000000000002ad2        0x2 
  .text.nrf_gpio_pin_port_decode
-                0x0000000000002a44       0x30 _build/nrfx_uart.o
+                0x0000000000002ad4       0x30 _build/nrfx_uart.o
  .text.nrf_gpio_cfg_default
-                0x0000000000002a74       0x1c _build/nrfx_uart.o
- .text.rx_byte  0x0000000000002a90       0x2c _build/nrfx_uart.o
+                0x0000000000002b04       0x1c _build/nrfx_uart.o
+ .text.rx_byte  0x0000000000002b20       0x2c _build/nrfx_uart.o
  .text.rx_done_event.constprop.0
-                0x0000000000002abc       0x20 _build/nrfx_uart.o
+                0x0000000000002b4c       0x20 _build/nrfx_uart.o
  .text.nrfx_uart_0_irq_handler
-                0x0000000000002adc      0x144 _build/nrfx_uart.o
-                0x0000000000002adc                nrfx_uart_0_irq_handler
+                0x0000000000002b6c      0x144 _build/nrfx_uart.o
+                0x0000000000002b6c                nrfx_uart_0_irq_handler
  .text.nrfx_uart_init
-                0x0000000000002c20      0x1e0 _build/nrfx_uart.o
-                0x0000000000002c20                nrfx_uart_init
+                0x0000000000002cb0      0x1e0 _build/nrfx_uart.o
+                0x0000000000002cb0                nrfx_uart_init
  .text.nrfx_uart_uninit
-                0x0000000000002e00       0xc0 _build/nrfx_uart.o
-                0x0000000000002e00                nrfx_uart_uninit
+                0x0000000000002e90       0xc0 _build/nrfx_uart.o
+                0x0000000000002e90                nrfx_uart_uninit
  .text.nrfx_uart_tx_in_progress
-                0x0000000000002ec0       0x18 _build/nrfx_uart.o
-                0x0000000000002ec0                nrfx_uart_tx_in_progress
+                0x0000000000002f50       0x18 _build/nrfx_uart.o
+                0x0000000000002f50                nrfx_uart_tx_in_progress
  .text.nrfx_uart_tx
-                0x0000000000002ed8       0xe0 _build/nrfx_uart.o
-                0x0000000000002ed8                nrfx_uart_tx
+                0x0000000000002f68       0xe0 _build/nrfx_uart.o
+                0x0000000000002f68                nrfx_uart_tx
  .text.nrfx_uart_rx
-                0x0000000000002fb8      0x134 _build/nrfx_uart.o
-                0x0000000000002fb8                nrfx_uart_rx
+                0x0000000000003048      0x134 _build/nrfx_uart.o
+                0x0000000000003048                nrfx_uart_rx
  .text.nrf_uarte_event_clear
-                0x00000000000030ec       0x10 _build/nrfx_uarte.o
+                0x000000000000317c       0x10 _build/nrfx_uarte.o
  .text.nrf_gpio_pin_port_decode
-                0x00000000000030fc       0x30 _build/nrfx_uarte.o
+                0x000000000000318c       0x30 _build/nrfx_uarte.o
  .text.nrf_gpio_cfg_default
-                0x000000000000312c       0x1c _build/nrfx_uarte.o
+                0x00000000000031bc       0x1c _build/nrfx_uarte.o
  .text.rx_done_event.constprop.0
-                0x0000000000003148       0x20 _build/nrfx_uarte.o
+                0x00000000000031d8       0x20 _build/nrfx_uarte.o
  .text.nrfx_uarte_0_irq_handler
-                0x0000000000003168      0x118 _build/nrfx_uarte.o
-                0x0000000000003168                nrfx_uarte_0_irq_handler
+                0x00000000000031f8      0x118 _build/nrfx_uarte.o
+                0x00000000000031f8                nrfx_uarte_0_irq_handler
  .text.nrfx_uarte_init
-                0x0000000000003280      0x1f8 _build/nrfx_uarte.o
-                0x0000000000003280                nrfx_uarte_init
+                0x0000000000003310      0x1f8 _build/nrfx_uarte.o
+                0x0000000000003310                nrfx_uarte_init
  .text.nrfx_uarte_uninit
-                0x0000000000003478       0xec _build/nrfx_uarte.o
-                0x0000000000003478                nrfx_uarte_uninit
+                0x0000000000003508       0xec _build/nrfx_uarte.o
+                0x0000000000003508                nrfx_uarte_uninit
  .text.nrfx_uarte_tx_in_progress
-                0x0000000000003564       0x18 _build/nrfx_uarte.o
-                0x0000000000003564                nrfx_uarte_tx_in_progress
+                0x00000000000035f4       0x18 _build/nrfx_uarte.o
+                0x00000000000035f4                nrfx_uarte_tx_in_progress
  .text.nrfx_uarte_tx
-                0x000000000000357c       0xf4 _build/nrfx_uarte.o
-                0x000000000000357c                nrfx_uarte_tx
+                0x000000000000360c       0xf4 _build/nrfx_uarte.o
+                0x000000000000360c                nrfx_uarte_tx
  .text.nrfx_uarte_rx
-                0x0000000000003670      0x130 _build/nrfx_uarte.o
-                0x0000000000003670                nrfx_uarte_rx
+                0x0000000000003700      0x130 _build/nrfx_uarte.o
+                0x0000000000003700                nrfx_uarte_rx
  .text.errata_36
-                0x00000000000037a0       0x1a _build/system_nrf52833.o
- *fill*         0x00000000000037ba        0x2 
+                0x0000000000003830       0x1a _build/system_nrf52833.o
+ *fill*         0x000000000000384a        0x2 
  .text.SystemInit
-                0x00000000000037bc      0x174 _build/system_nrf52833.o
-                0x00000000000037bc                SystemInit
- .text          0x0000000000003930       0x3c _build/gcc_startup_nrf52833.os
-                0x0000000000003930                Reset_Handler
-                0x0000000000003958                NMI_Handler
-                0x000000000000395c                MemoryManagement_Handler
-                0x000000000000395e                BusFault_Handler
-                0x0000000000003960                UsageFault_Handler
-                0x0000000000003962                SVC_Handler
-                0x0000000000003964                DebugMon_Handler
-                0x0000000000003966                PendSV_Handler
-                0x0000000000003968                SysTick_Handler
-                0x000000000000396a                PWM3_IRQHandler
-                0x000000000000396a                FPU_IRQHandler
-                0x000000000000396a                USBD_IRQHandler
-                0x000000000000396a                TIMER4_IRQHandler
-                0x000000000000396a                I2S_IRQHandler
-                0x000000000000396a                SWI4_EGU4_IRQHandler
-                0x000000000000396a                UARTE1_IRQHandler
-                0x000000000000396a                SPIM3_IRQHandler
-                0x000000000000396a                PWM2_IRQHandler
-                0x000000000000396a                ECB_IRQHandler
-                0x000000000000396a                Default_Handler
-                0x000000000000396a                CCM_AAR_IRQHandler
-                0x000000000000396a                WDT_IRQHandler
-                0x000000000000396a                SWI5_EGU5_IRQHandler
-                0x000000000000396a                RNG_IRQHandler
-                0x000000000000396a                RTC2_IRQHandler
-                0x000000000000396a                SWI3_EGU3_IRQHandler
-                0x000000000000396a                SWI1_EGU1_IRQHandler
-                0x000000000000396a                NFCT_IRQHandler
-                0x000000000000396a                MWU_IRQHandler
-                0x000000000000396a                TIMER2_IRQHandler
-                0x000000000000396a                COMP_LPCOMP_IRQHandler
-                0x000000000000396a                RTC0_IRQHandler
-                0x000000000000396a                SWI2_EGU2_IRQHandler
-                0x000000000000396a                PWM1_IRQHandler
-                0x000000000000396a                RADIO_IRQHandler
-                0x000000000000396a                PDM_IRQHandler
-                0x000000000000396a                TEMP_IRQHandler
-                0x000000000000396a                QDEC_IRQHandler
-                0x000000000000396a                TIMER3_IRQHandler
- .text.exit     0x000000000000396c       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-exit.o)
-                0x000000000000396c                exit
+                0x000000000000384c      0x174 _build/system_nrf52833.o
+                0x000000000000384c                SystemInit
+ .text          0x00000000000039c0       0x3c _build/gcc_startup_nrf52833.os
+                0x00000000000039c0                Reset_Handler
+                0x00000000000039e8                NMI_Handler
+                0x00000000000039ec                MemoryManagement_Handler
+                0x00000000000039ee                BusFault_Handler
+                0x00000000000039f0                UsageFault_Handler
+                0x00000000000039f2                SVC_Handler
+                0x00000000000039f4                DebugMon_Handler
+                0x00000000000039f6                PendSV_Handler
+                0x00000000000039f8                SysTick_Handler
+                0x00000000000039fa                PWM3_IRQHandler
+                0x00000000000039fa                FPU_IRQHandler
+                0x00000000000039fa                USBD_IRQHandler
+                0x00000000000039fa                TIMER4_IRQHandler
+                0x00000000000039fa                I2S_IRQHandler
+                0x00000000000039fa                SWI4_EGU4_IRQHandler
+                0x00000000000039fa                UARTE1_IRQHandler
+                0x00000000000039fa                SPIM3_IRQHandler
+                0x00000000000039fa                PWM2_IRQHandler
+                0x00000000000039fa                ECB_IRQHandler
+                0x00000000000039fa                Default_Handler
+                0x00000000000039fa                CCM_AAR_IRQHandler
+                0x00000000000039fa                WDT_IRQHandler
+                0x00000000000039fa                SWI5_EGU5_IRQHandler
+                0x00000000000039fa                RNG_IRQHandler
+                0x00000000000039fa                RTC2_IRQHandler
+                0x00000000000039fa                SWI3_EGU3_IRQHandler
+                0x00000000000039fa                SWI1_EGU1_IRQHandler
+                0x00000000000039fa                NFCT_IRQHandler
+                0x00000000000039fa                MWU_IRQHandler
+                0x00000000000039fa                TIMER2_IRQHandler
+                0x00000000000039fa                COMP_LPCOMP_IRQHandler
+                0x00000000000039fa                RTC0_IRQHandler
+                0x00000000000039fa                SWI2_EGU2_IRQHandler
+                0x00000000000039fa                PWM1_IRQHandler
+                0x00000000000039fa                RADIO_IRQHandler
+                0x00000000000039fa                PDM_IRQHandler
+                0x00000000000039fa                TEMP_IRQHandler
+                0x00000000000039fa                QDEC_IRQHandler
+                0x00000000000039fa                TIMER3_IRQHandler
+ .text.exit     0x00000000000039fc       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-exit.o)
+                0x00000000000039fc                exit
  .text.__libc_init_array
-                0x000000000000398c       0x48 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-init.o)
-                0x000000000000398c                __libc_init_array
- .text          0x00000000000039d4      0x134 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memcpy.o)
-                0x00000000000039d4                memcpy
- .text.memset   0x0000000000003b08       0xa4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memset.o)
-                0x0000000000003b08                memset
- .text.printf   0x0000000000003bac       0x28 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-printf.o)
-                0x0000000000003bac                printf
- .text.setbuf   0x0000000000003bd4       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-setbuf.o)
-                0x0000000000003bd4                setbuf
- .text.setvbuf  0x0000000000003be4      0x1b0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-setvbuf.o)
-                0x0000000000003be4                setvbuf
- *fill*         0x0000000000003d94       0x2c 
- .text          0x0000000000003dc0       0xdc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strlen.o)
-                0x0000000000003dc0                strlen
- *fill*         0x0000000000003e9c        0x4 
+                0x0000000000003a1c       0x48 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-init.o)
+                0x0000000000003a1c                __libc_init_array
+ .text          0x0000000000003a64      0x134 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memcpy.o)
+                0x0000000000003a64                memcpy
+ .text.memset   0x0000000000003b98       0xa4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memset.o)
+                0x0000000000003b98                memset
+ .text.printf   0x0000000000003c3c       0x28 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-printf.o)
+                0x0000000000003c3c                printf
+ .text.setbuf   0x0000000000003c64       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-setbuf.o)
+                0x0000000000003c64                setbuf
+ .text.setvbuf  0x0000000000003c74      0x1b0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-setvbuf.o)
+                0x0000000000003c74                setvbuf
+ *fill*         0x0000000000003e24       0x1c 
+ .text          0x0000000000003e40       0xdc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strlen.o)
+                0x0000000000003e40                strlen
+ *fill*         0x0000000000003f1c        0x4 
  .text._vfprintf_r
-                0x0000000000003ea0     0x1b90 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
-                0x0000000000003ea0                _vfprintf_r
+                0x0000000000003f20     0x1b90 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
+                0x0000000000003f20                _vfprintf_r
  .text.__sbprintf
-                0x0000000000005a30       0x80 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
+                0x0000000000005ab0       0x80 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
  .text.__swsetup_r
-                0x0000000000005ab0       0xd4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wsetup.o)
-                0x0000000000005ab0                __swsetup_r
+                0x0000000000005b30       0xd4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wsetup.o)
+                0x0000000000005b30                __swsetup_r
  .text.startup.register_fini
-                0x0000000000005b84       0x14 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
+                0x0000000000005c04       0x14 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x0000000000005b98       0xcc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
-                0x0000000000005b98                __call_exitprocs
- .text.atexit   0x0000000000005c64        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-atexit.o)
-                0x0000000000005c64                atexit
- .text.quorem   0x0000000000005c70      0x128 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
- .text._dtoa_r  0x0000000000005d98      0xf3c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
-                0x0000000000005d98                _dtoa_r
+                0x0000000000005c18       0xcc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
+                0x0000000000005c18                __call_exitprocs
+ .text.atexit   0x0000000000005ce4        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-atexit.o)
+                0x0000000000005ce4                atexit
+ .text.quorem   0x0000000000005cf0      0x128 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
+ .text._dtoa_r  0x0000000000005e18      0xf3c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
+                0x0000000000005e18                _dtoa_r
  .text.__sflush_r
-                0x0000000000006cd4      0x130 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
-                0x0000000000006cd4                __sflush_r
+                0x0000000000006d54      0x130 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
+                0x0000000000006d54                __sflush_r
  .text._fflush_r
-                0x0000000000006e04       0x5c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
-                0x0000000000006e04                _fflush_r
+                0x0000000000006e84       0x5c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
+                0x0000000000006e84                _fflush_r
  .text._cleanup_r
-                0x0000000000006e60        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
-                0x0000000000006e60                _cleanup_r
- .text.__sinit  0x0000000000006e6c      0x10c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
-                0x0000000000006e6c                __sinit
+                0x0000000000006ee0        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
+                0x0000000000006ee0                _cleanup_r
+ .text.__sinit  0x0000000000006eec      0x10c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
+                0x0000000000006eec                __sinit
  .text.__sfp_lock_acquire
-                0x0000000000006f78        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
-                0x0000000000006f78                __sfp_lock_acquire
+                0x0000000000006ff8        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
+                0x0000000000006ff8                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x0000000000006f84        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
-                0x0000000000006f84                __sfp_lock_release
+                0x0000000000007004        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
+                0x0000000000007004                __sfp_lock_release
  .text.__libc_fini_array
-                0x0000000000006f90       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fini.o)
-                0x0000000000006f90                __libc_fini_array
+                0x0000000000007010       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fini.o)
+                0x0000000000007010                __libc_fini_array
  .text._malloc_trim_r
-                0x0000000000006fbc       0xa0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-freer.o)
-                0x0000000000006fbc                _malloc_trim_r
- .text._free_r  0x000000000000705c      0x20c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-freer.o)
-                0x000000000000705c                _free_r
+                0x000000000000703c       0xa0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-freer.o)
+                0x000000000000703c                _malloc_trim_r
+ .text._free_r  0x00000000000070dc      0x20c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-freer.o)
+                0x00000000000070dc                _free_r
  .text._fwalk_reent
-                0x0000000000007268       0x48 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fwalk.o)
-                0x0000000000007268                _fwalk_reent
+                0x00000000000072e8       0x48 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fwalk.o)
+                0x00000000000072e8                _fwalk_reent
  .text._localeconv_r
-                0x00000000000072b0        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-localeconv.o)
-                0x00000000000072b0                _localeconv_r
+                0x0000000000007330        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-localeconv.o)
+                0x0000000000007330                _localeconv_r
  .text.__retarget_lock_init_recursive
-                0x00000000000072b8        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lock.o)
-                0x00000000000072b8                __retarget_lock_init_recursive
+                0x0000000000007338        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lock.o)
+                0x0000000000007338                __retarget_lock_init_recursive
  .text.__retarget_lock_close_recursive
-                0x00000000000072bc        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lock.o)
-                0x00000000000072bc                __retarget_lock_close_recursive
+                0x000000000000733c        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lock.o)
+                0x000000000000733c                __retarget_lock_close_recursive
  .text.__retarget_lock_acquire_recursive
-                0x00000000000072c0        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lock.o)
-                0x00000000000072c0                __retarget_lock_acquire_recursive
+                0x0000000000007340        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lock.o)
+                0x0000000000007340                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x00000000000072c4        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lock.o)
-                0x00000000000072c4                __retarget_lock_release_recursive
+                0x0000000000007344        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lock.o)
+                0x0000000000007344                __retarget_lock_release_recursive
  .text.__smakebuf_r
-                0x00000000000072c8       0xe0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
-                0x00000000000072c8                __smakebuf_r
+                0x0000000000007348       0xe0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
+                0x0000000000007348                __smakebuf_r
  .text.__swhatbuf_r
-                0x00000000000073a8       0x60 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
-                0x00000000000073a8                __swhatbuf_r
- .text.malloc   0x0000000000007408       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-malloc.o)
-                0x0000000000007408                malloc
+                0x0000000000007428       0x60 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
+                0x0000000000007428                __swhatbuf_r
+ .text.malloc   0x0000000000007488       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-malloc.o)
+                0x0000000000007488                malloc
  .text._malloc_r
-                0x0000000000007418      0x560 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mallocr.o)
-                0x0000000000007418                _malloc_r
- *fill*         0x0000000000007978        0x8 
- .text          0x0000000000007980       0xa0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memchr.o)
-                0x0000000000007980                memchr
+                0x0000000000007498      0x560 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mallocr.o)
+                0x0000000000007498                _malloc_r
+ *fill*         0x00000000000079f8        0x8 
+ .text          0x0000000000007a00       0xa0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memchr.o)
+                0x0000000000007a00                memchr
  .text.__malloc_lock
-                0x0000000000007a20        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mlock.o)
-                0x0000000000007a20                __malloc_lock
+                0x0000000000007aa0        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mlock.o)
+                0x0000000000007aa0                __malloc_lock
  .text.__malloc_unlock
-                0x0000000000007a2c        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mlock.o)
-                0x0000000000007a2c                __malloc_unlock
- .text._Balloc  0x0000000000007a38       0x4c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007a38                _Balloc
- .text._Bfree   0x0000000000007a84       0x14 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007a84                _Bfree
+                0x0000000000007aac        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mlock.o)
+                0x0000000000007aac                __malloc_unlock
+ .text._Balloc  0x0000000000007ab8       0x4c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007ab8                _Balloc
+ .text._Bfree   0x0000000000007b04       0x14 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007b04                _Bfree
  .text.__multadd
-                0x0000000000007a98       0xa8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007a98                __multadd
+                0x0000000000007b18       0xa8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007b18                __multadd
  .text.__hi0bits
-                0x0000000000007b40       0x40 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007b40                __hi0bits
+                0x0000000000007bc0       0x40 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007bc0                __hi0bits
  .text.__lo0bits
-                0x0000000000007b80       0x60 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007b80                __lo0bits
- .text.__i2b    0x0000000000007be0       0x5c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007be0                __i2b
+                0x0000000000007c00       0x60 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007c00                __lo0bits
+ .text.__i2b    0x0000000000007c60       0x5c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007c60                __i2b
  .text.__multiply
-                0x0000000000007c3c      0x15c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007c3c                __multiply
+                0x0000000000007cbc      0x15c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007cbc                __multiply
  .text.__pow5mult
-                0x0000000000007d98       0xc0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007d98                __pow5mult
+                0x0000000000007e18       0xc0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007e18                __pow5mult
  .text.__lshift
-                0x0000000000007e58       0xf0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007e58                __lshift
- .text.__mcmp   0x0000000000007f48       0x44 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007f48                __mcmp
- .text.__mdiff  0x0000000000007f8c      0x14c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x0000000000007f8c                __mdiff
- .text.__d2b    0x00000000000080d8       0xd0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x00000000000080d8                __d2b
- .text.frexp    0x00000000000081a8       0x6c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-s_frexp.o)
-                0x00000000000081a8                frexp
- .text._sbrk_r  0x0000000000008214       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-sbrkr.o)
-                0x0000000000008214                _sbrk_r
- .text.__sread  0x0000000000008238       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
-                0x0000000000008238                __sread
+                0x0000000000007ed8       0xf0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007ed8                __lshift
+ .text.__mcmp   0x0000000000007fc8       0x44 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000007fc8                __mcmp
+ .text.__mdiff  0x000000000000800c      0x14c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x000000000000800c                __mdiff
+ .text.__d2b    0x0000000000008158       0xd0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x0000000000008158                __d2b
+ .text.frexp    0x0000000000008228       0x6c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-s_frexp.o)
+                0x0000000000008228                frexp
+ .text._sbrk_r  0x0000000000008294       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-sbrkr.o)
+                0x0000000000008294                _sbrk_r
+ .text.__sread  0x00000000000082b8       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
+                0x00000000000082b8                __sread
  .text.__swrite
-                0x000000000000825c       0x40 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
-                0x000000000000825c                __swrite
- .text.__sseek  0x000000000000829c       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
-                0x000000000000829c                __sseek
+                0x00000000000082dc       0x40 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
+                0x00000000000082dc                __swrite
+ .text.__sseek  0x000000000000831c       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
+                0x000000000000831c                __sseek
  .text.__sclose
-                0x00000000000082bc        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
-                0x00000000000082bc                __sclose
- .text.strncpy  0x00000000000082c4       0x64 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strncpy.o)
-                0x00000000000082c4                strncpy
+                0x000000000000833c        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
+                0x000000000000833c                __sclose
+ .text.strncpy  0x0000000000008344       0x64 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strncpy.o)
+                0x0000000000008344                strncpy
  .text.__sprint_r.part.0
-                0x0000000000008328       0x78 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+                0x00000000000083a8       0x78 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
  .text.__sprint_r
-                0x00000000000083a0       0x18 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
-                0x00000000000083a0                __sprint_r
+                0x0000000000008420       0x18 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+                0x0000000000008420                __sprint_r
  .text._vfiprintf_r
-                0x00000000000083b8      0xdfc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
-                0x00000000000083b8                _vfiprintf_r
+                0x0000000000008438      0xdfc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+                0x0000000000008438                _vfiprintf_r
  .text.__sbprintf
-                0x00000000000091b4       0x80 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+                0x0000000000009234       0x80 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
  .text._write_r
-                0x0000000000009234       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-writer.o)
-                0x0000000000009234                _write_r
+                0x00000000000092b4       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-writer.o)
+                0x00000000000092b4                _write_r
  .text.__register_exitproc
-                0x0000000000009260       0x8c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__atexit.o)
-                0x0000000000009260                __register_exitproc
+                0x00000000000092e0       0x8c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__atexit.o)
+                0x00000000000092e0                __register_exitproc
  .text.__assert_func
-                0x00000000000092ec       0x40 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-assert.o)
-                0x00000000000092ec                __assert_func
+                0x000000000000936c       0x40 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-assert.o)
+                0x000000000000936c                __assert_func
  .text._calloc_r
-                0x000000000000932c       0x78 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-callocr.o)
-                0x000000000000932c                _calloc_r
+                0x00000000000093ac       0x78 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-callocr.o)
+                0x00000000000093ac                _calloc_r
  .text._close_r
-                0x00000000000093a4       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-closer.o)
-                0x00000000000093a4                _close_r
- .text.__errno  0x00000000000093c8        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-errno.o)
-                0x00000000000093c8                __errno
+                0x0000000000009424       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-closer.o)
+                0x0000000000009424                _close_r
+ .text.__errno  0x0000000000009448        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-errno.o)
+                0x0000000000009448                __errno
  .text._fclose_r
-                0x00000000000093d4       0xcc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fclose.o)
-                0x00000000000093d4                _fclose_r
+                0x0000000000009454       0xcc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fclose.o)
+                0x0000000000009454                _fclose_r
  .text.fiprintf
-                0x00000000000094a0       0x28 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fiprintf.o)
-                0x00000000000094a0                fiprintf
+                0x0000000000009520       0x28 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fiprintf.o)
+                0x0000000000009520                fiprintf
  .text.__fputwc
-                0x00000000000094c8       0xa8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
-                0x00000000000094c8                __fputwc
+                0x0000000000009548       0xa8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
+                0x0000000000009548                __fputwc
  .text._fputwc_r
-                0x0000000000009570       0x68 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
-                0x0000000000009570                _fputwc_r
+                0x00000000000095f0       0x68 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
+                0x00000000000095f0                _fputwc_r
  .text._fstat_r
-                0x00000000000095d8       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fstatr.o)
-                0x00000000000095d8                _fstat_r
+                0x0000000000009658       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fstatr.o)
+                0x0000000000009658                _fstat_r
  .text.__sfvwrite_r
-                0x0000000000009604      0x2f0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fvwrite.o)
-                0x0000000000009604                __sfvwrite_r
+                0x0000000000009684      0x2f0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fvwrite.o)
+                0x0000000000009684                __sfvwrite_r
  .text._isatty_r
-                0x00000000000098f4       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-isattyr.o)
-                0x00000000000098f4                _isatty_r
+                0x0000000000009974       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-isattyr.o)
+                0x0000000000009974                _isatty_r
  .text.__locale_mb_cur_max
-                0x0000000000009918        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
-                0x0000000000009918                __locale_mb_cur_max
+                0x0000000000009998        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
+                0x0000000000009998                __locale_mb_cur_max
  .text._lseek_r
-                0x0000000000009924       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lseekr.o)
-                0x0000000000009924                _lseek_r
+                0x00000000000099a4       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lseekr.o)
+                0x00000000000099a4                _lseek_r
  .text.__ascii_mbtowc
-                0x0000000000009950       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mbtowc_r.o)
-                0x0000000000009950                __ascii_mbtowc
- .text.memmove  0x000000000000997c       0xf8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memmove.o)
-                0x000000000000997c                memmove
- .text._read_r  0x0000000000009a74       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-readr.o)
-                0x0000000000009a74                _read_r
+                0x00000000000099d0       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mbtowc_r.o)
+                0x00000000000099d0                __ascii_mbtowc
+ .text.memmove  0x00000000000099fc       0xf8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memmove.o)
+                0x00000000000099fc                memmove
+ .text._read_r  0x0000000000009af4       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-readr.o)
+                0x0000000000009af4                _read_r
  .text._realloc_r
-                0x0000000000009aa0      0x3d8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-reallocr.o)
-                0x0000000000009aa0                _realloc_r
+                0x0000000000009b20      0x3d8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-reallocr.o)
+                0x0000000000009b20                _realloc_r
  .text.__swbuf_r
-                0x0000000000009e78       0xb0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wbuf.o)
-                0x0000000000009e78                __swbuf_r
+                0x0000000000009ef8       0xb0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wbuf.o)
+                0x0000000000009ef8                __swbuf_r
  .text._wcrtomb_r
-                0x0000000000009f28       0x3c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wcrtomb.o)
-                0x0000000000009f28                _wcrtomb_r
+                0x0000000000009fa8       0x3c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wcrtomb.o)
+                0x0000000000009fa8                _wcrtomb_r
  .text.__ascii_wctomb
-                0x0000000000009f64       0x1c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wctomb_r.o)
-                0x0000000000009f64                __ascii_wctomb
- .text.abort    0x0000000000009f80       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-abort.o)
-                0x0000000000009f80                abort
- .text.raise    0x0000000000009f90       0x5c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signal.o)
-                0x0000000000009f90                raise
- .text._kill_r  0x0000000000009fec       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signalr.o)
-                0x0000000000009fec                _kill_r
+                0x0000000000009fe4       0x1c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wctomb_r.o)
+                0x0000000000009fe4                __ascii_wctomb
+ .text.abort    0x000000000000a000       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-abort.o)
+                0x000000000000a000                abort
+ .text.raise    0x000000000000a010       0x5c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signal.o)
+                0x000000000000a010                raise
+ .text._kill_r  0x000000000000a06c       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signalr.o)
+                0x000000000000a06c                _kill_r
  .text._getpid_r
-                0x000000000000a018        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signalr.o)
-                0x000000000000a018                _getpid_r
- .text._close   0x000000000000a01c       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(close.o)
-                0x000000000000a01c                _close
- .text._fstat   0x000000000000a02c       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(fstat.o)
-                0x000000000000a02c                _fstat
- .text._getpid  0x000000000000a03c       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(getpid.o)
-                0x000000000000a03c                _getpid
- .text._isatty  0x000000000000a04c       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(isatty.o)
-                0x000000000000a04c                _isatty
- .text._kill    0x000000000000a05c       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(kill.o)
-                0x000000000000a05c                _kill
- .text._lseek   0x000000000000a06c       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(lseek.o)
-                0x000000000000a06c                _lseek
- .text._sbrk    0x000000000000a07c       0x1c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
-                0x000000000000a07c                _sbrk
- .text._exit    0x000000000000a098        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
-                0x000000000000a098                _exit
- .text          0x000000000000a09c      0x378 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
-                0x000000000000a09c                __aeabi_drsub
-                0x000000000000a0a4                __subdf3
-                0x000000000000a0a4                __aeabi_dsub
-                0x000000000000a0a8                __aeabi_dadd
-                0x000000000000a0a8                __adddf3
-                0x000000000000a320                __aeabi_ui2d
-                0x000000000000a320                __floatunsidf
-                0x000000000000a340                __floatsidf
-                0x000000000000a340                __aeabi_i2d
-                0x000000000000a364                __extendsfdf2
-                0x000000000000a364                __aeabi_f2d
-                0x000000000000a3a8                __aeabi_ul2d
-                0x000000000000a3a8                __floatundidf
-                0x000000000000a3b8                __aeabi_l2d
-                0x000000000000a3b8                __floatdidf
- .text          0x000000000000a414      0x424 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
-                0x000000000000a414                __aeabi_dmul
-                0x000000000000a414                __muldf3
-                0x000000000000a668                __aeabi_ddiv
-                0x000000000000a668                __divdf3
- .text          0x000000000000a838      0x110 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
-                0x000000000000a838                __gedf2
-                0x000000000000a838                __gtdf2
-                0x000000000000a840                __ledf2
-                0x000000000000a840                __ltdf2
-                0x000000000000a848                __cmpdf2
-                0x000000000000a848                __eqdf2
-                0x000000000000a848                __nedf2
-                0x000000000000a8c4                __aeabi_cdrcmple
-                0x000000000000a8d4                __aeabi_cdcmple
-                0x000000000000a8d4                __aeabi_cdcmpeq
-                0x000000000000a8e4                __aeabi_dcmpeq
-                0x000000000000a8f8                __aeabi_dcmplt
-                0x000000000000a90c                __aeabi_dcmple
-                0x000000000000a920                __aeabi_dcmpge
-                0x000000000000a934                __aeabi_dcmpgt
- .text          0x000000000000a948       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
-                0x000000000000a948                __aeabi_dcmpun
-                0x000000000000a948                __unorddf2
- .text          0x000000000000a974       0x50 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
-                0x000000000000a974                __fixdfsi
-                0x000000000000a974                __aeabi_d2iz
- .text          0x000000000000a9c4       0x30 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
-                0x000000000000a9c4                __aeabi_uldivmod
- .text          0x000000000000a9f4      0x2d0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x000000000000a9f4                __udivmoddi4
- .text          0x000000000000acc4        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
-                0x000000000000acc4                __aeabi_ldiv0
-                0x000000000000acc4                __aeabi_idiv0
+                0x000000000000a098        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signalr.o)
+                0x000000000000a098                _getpid_r
+ .text._close   0x000000000000a09c       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(close.o)
+                0x000000000000a09c                _close
+ .text._fstat   0x000000000000a0ac       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(fstat.o)
+                0x000000000000a0ac                _fstat
+ .text._getpid  0x000000000000a0bc       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(getpid.o)
+                0x000000000000a0bc                _getpid
+ .text._isatty  0x000000000000a0cc       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(isatty.o)
+                0x000000000000a0cc                _isatty
+ .text._kill    0x000000000000a0dc       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(kill.o)
+                0x000000000000a0dc                _kill
+ .text._lseek   0x000000000000a0ec       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(lseek.o)
+                0x000000000000a0ec                _lseek
+ .text._sbrk    0x000000000000a0fc       0x1c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
+                0x000000000000a0fc                _sbrk
+ .text._exit    0x000000000000a118        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
+                0x000000000000a118                _exit
+ .text          0x000000000000a11c      0x378 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+                0x000000000000a11c                __aeabi_drsub
+                0x000000000000a124                __subdf3
+                0x000000000000a124                __aeabi_dsub
+                0x000000000000a128                __aeabi_dadd
+                0x000000000000a128                __adddf3
+                0x000000000000a3a0                __aeabi_ui2d
+                0x000000000000a3a0                __floatunsidf
+                0x000000000000a3c0                __floatsidf
+                0x000000000000a3c0                __aeabi_i2d
+                0x000000000000a3e4                __extendsfdf2
+                0x000000000000a3e4                __aeabi_f2d
+                0x000000000000a428                __aeabi_ul2d
+                0x000000000000a428                __floatundidf
+                0x000000000000a438                __aeabi_l2d
+                0x000000000000a438                __floatdidf
+ .text          0x000000000000a494      0x424 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
+                0x000000000000a494                __aeabi_dmul
+                0x000000000000a494                __muldf3
+                0x000000000000a6e8                __aeabi_ddiv
+                0x000000000000a6e8                __divdf3
+ .text          0x000000000000a8b8      0x110 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
+                0x000000000000a8b8                __gedf2
+                0x000000000000a8b8                __gtdf2
+                0x000000000000a8c0                __ledf2
+                0x000000000000a8c0                __ltdf2
+                0x000000000000a8c8                __cmpdf2
+                0x000000000000a8c8                __eqdf2
+                0x000000000000a8c8                __nedf2
+                0x000000000000a944                __aeabi_cdrcmple
+                0x000000000000a954                __aeabi_cdcmple
+                0x000000000000a954                __aeabi_cdcmpeq
+                0x000000000000a964                __aeabi_dcmpeq
+                0x000000000000a978                __aeabi_dcmplt
+                0x000000000000a98c                __aeabi_dcmple
+                0x000000000000a9a0                __aeabi_dcmpge
+                0x000000000000a9b4                __aeabi_dcmpgt
+ .text          0x000000000000a9c8       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
+                0x000000000000a9c8                __aeabi_dcmpun
+                0x000000000000a9c8                __unorddf2
+ .text          0x000000000000a9f4       0x50 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
+                0x000000000000a9f4                __fixdfsi
+                0x000000000000a9f4                __aeabi_d2iz
+ .text          0x000000000000aa44       0x30 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x000000000000aa44                __aeabi_uldivmod
+ .text          0x000000000000aa74      0x2d0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x000000000000aa74                __udivmoddi4
+ .text          0x000000000000ad44        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+                0x000000000000ad44                __aeabi_ldiv0
+                0x000000000000ad44                __aeabi_idiv0
  *(.init)
- .init          0x000000000000acc8        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x000000000000acc8                _init
- .init          0x000000000000accc        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x000000000000ad48        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x000000000000ad48                _init
+ .init          0x000000000000ad4c        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x000000000000acd4        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x000000000000acd4                _fini
- .fini          0x000000000000acd8        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .fini          0x000000000000ad54        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x000000000000ad54                _fini
+ .fini          0x000000000000ad58        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -2009,340 +2011,343 @@ Linker script and memory map
  *(.dtors)
  *(.rodata*)
  .rodata.PWM_INST
-                0x000000000000ace0        0x8 _build/audio.o
- .rodata.main.str1.1
-                0x000000000000ace8        0xd _build/main.o
- .rodata.clap   0x000000000000acf5     0x2b15 _build/main.o
-                0x000000000000acf5                clap
- *fill*         0x000000000000d80a        0x6 
- .rodata.delay_machine_code.0
-                0x000000000000d810        0x6 _build/main.o
+                0x000000000000ad60        0x8 _build/audio.o
  .rodata.nrf_gpio_pin_port_decode.str1.1
-                0x000000000000d816       0x43 _build/better_error_handling.o
+                0x000000000000ad68        0x0 _build/main.o
+                                         0x40 (size before relaxing)
+ .rodata.main.str1.1
+                0x000000000000ad68       0x39 _build/main.o
+ .rodata.clap   0x000000000000ada1     0x2b15 _build/main.o
+                0x000000000000ada1                clap
+ *fill*         0x000000000000d8b6        0xa 
+ .rodata.delay_machine_code.0
+                0x000000000000d8c0        0x6 _build/main.o
+ .rodata.nrf_gpio_pin_port_decode.str1.1
+                0x000000000000d8c6       0x43 _build/better_error_handling.o
  .rodata.app_error_fault_handler.str1.1
-                0x000000000000d859       0x78 _build/better_error_handling.o
+                0x000000000000d909       0x78 _build/better_error_handling.o
  .rodata.LED_COLS
-                0x000000000000d8d1        0x5 _build/better_error_handling.o
+                0x000000000000d981        0x5 _build/better_error_handling.o
  .rodata.LED_ROWS
-                0x000000000000d8d6        0x5 _build/better_error_handling.o
- *fill*         0x000000000000d8db        0x5 
+                0x000000000000d986        0x5 _build/better_error_handling.o
+ *fill*         0x000000000000d98b        0x5 
  .rodata.delay_machine_code.0
-                0x000000000000d8e0        0x6 _build/better_error_handling.o
+                0x000000000000d990        0x6 _build/better_error_handling.o
  .rodata.called_first.str1.1
-                0x000000000000d8e6       0x75 _build/microbit_before_startup.o
- *fill*         0x000000000000d95b        0x5 
+                0x000000000000d996       0x75 _build/microbit_before_startup.o
+ *fill*         0x000000000000da0b        0x5 
  .rodata.delay_machine_code.0
-                0x000000000000d960        0x6 _build/microbit_before_startup.o
+                0x000000000000da10        0x6 _build/microbit_before_startup.o
  .rodata.uart_init.constprop.0.str1.1
-                0x000000000000d966       0x7b _build/microbit_nrf_log_backend_uart.o
- *fill*         0x000000000000d9e1        0x3 
- .rodata        0x000000000000d9e4       0x20 _build/microbit_nrf_log_backend_uart.o
+                0x000000000000da16       0x7b _build/microbit_nrf_log_backend_uart.o
+ *fill*         0x000000000000da91        0x3 
+ .rodata        0x000000000000da94       0x20 _build/microbit_nrf_log_backend_uart.o
  .rodata.nrf_log_backend_uart_api
-                0x000000000000da04        0xc _build/microbit_nrf_log_backend_uart.o
-                0x000000000000da04                nrf_log_backend_uart_api
+                0x000000000000dab4        0xc _build/microbit_nrf_log_backend_uart.o
+                0x000000000000dab4                nrf_log_backend_uart_api
  .rodata.delay_machine_code.0
-                0x000000000000da10        0x6 _build/app_timer.o
+                0x000000000000dac0        0x6 _build/app_timer.o
  .rodata.app_util_critical_region_enter.str1.1
-                0x000000000000da16       0x55 _build/app_util_platform.o
+                0x000000000000dac6       0x55 _build/app_util_platform.o
  .rodata.HardFault_c_handler.str1.1
-                0x000000000000da6b      0x12e _build/hardfault_implementation.o
+                0x000000000000db1b      0x12e _build/hardfault_implementation.o
  .rodata.str1.1
-                0x000000000000db99      0x4c0 _build/hardfault_implementation.o
- *fill*         0x000000000000e059        0x3 
+                0x000000000000dc49      0x4c0 _build/hardfault_implementation.o
+ *fill*         0x000000000000e109        0x3 
  .rodata.cfsr_msgs.0
-                0x000000000000e05c       0x68 _build/hardfault_implementation.o
+                0x000000000000e10c       0x68 _build/hardfault_implementation.o
  .rodata.nrf_balloc_init.str1.1
-                0x000000000000e0c4       0x50 _build/nrf_balloc.o
+                0x000000000000e174       0x50 _build/nrf_balloc.o
  .rodata.str1.1
-                0x000000000000e114        0x6 _build/nrf_drv_clock.o
+                0x000000000000e1c4        0x6 _build/nrf_drv_clock.o
  .rodata.nrf_fprintf_buffer_flush.str1.1
-                0x000000000000e11a       0x46 _build/nrf_fprintf.o
+                0x000000000000e1ca       0x46 _build/nrf_fprintf.o
  .rodata.nrf_fprintf_fmt.str1.1
-                0x000000000000e160       0x4d _build/nrf_fprintf_format.o
+                0x000000000000e210       0x4d _build/nrf_fprintf_format.o
  .rodata._aV2C.0
-                0x000000000000e1ad       0x10 _build/nrf_fprintf_format.o
+                0x000000000000e25d       0x10 _build/nrf_fprintf_format.o
  .rodata.nrf_log_default_backends_init.str1.1
-                0x000000000000e1bd       0x5f _build/nrf_log_default_backends.o
+                0x000000000000e26d       0x5f _build/nrf_log_default_backends.o
  .rodata.str1.1
-                0x000000000000e21c       0x11 _build/nrf_log_default_backends.o
+                0x000000000000e2cc       0x11 _build/nrf_log_default_backends.o
  .rodata.buf_prealloc.str1.1
-                0x000000000000e22d       0x57 _build/nrf_log_frontend.o
+                0x000000000000e2dd       0x57 _build/nrf_log_frontend.o
  .rodata.nrf_log_frontend_dequeue.str1.1
-                0x000000000000e284       0x11 _build/nrf_log_frontend.o
+                0x000000000000e334       0x11 _build/nrf_log_frontend.o
  .rodata.str1.1
-                0x000000000000e295        0x4 _build/nrf_log_frontend.o
- *fill*         0x000000000000e299        0x3 
+                0x000000000000e345        0x4 _build/nrf_log_frontend.o
+ *fill*         0x000000000000e349        0x3 
  .rodata.m_log_push_ringbuf
-                0x000000000000e29c        0xc _build/nrf_log_frontend.o
+                0x000000000000e34c        0xc _build/nrf_log_frontend.o
  .rodata.prefix_process.str1.1
-                0x000000000000e2a8       0x32 _build/nrf_log_str_formatter.o
+                0x000000000000e358       0x32 _build/nrf_log_str_formatter.o
  .rodata.postfix_process.str1.1
-                0x000000000000e2da       0x32 _build/nrf_log_str_formatter.o
+                0x000000000000e38a       0x32 _build/nrf_log_str_formatter.o
                                           0x3 (size before relaxing)
  .rodata.nrf_log_hexdump_entry_process.str1.1
-                0x000000000000e2da        0xf _build/nrf_log_str_formatter.o
+                0x000000000000e38a        0xf _build/nrf_log_str_formatter.o
                                          0x11 (size before relaxing)
  .rodata.str1.1
-                0x000000000000e2e9       0x4b _build/nrf_log_str_formatter.o
+                0x000000000000e399       0x4b _build/nrf_log_str_formatter.o
                                          0x51 (size before relaxing)
  .rodata.m_colors
-                0x000000000000e334       0x24 _build/nrf_log_str_formatter.o
+                0x000000000000e3e4       0x24 _build/nrf_log_str_formatter.o
  .rodata.severity_names
-                0x000000000000e358       0x14 _build/nrf_log_str_formatter.o
+                0x000000000000e408       0x14 _build/nrf_log_str_formatter.o
  .rodata.memobj_op.str1.1
-                0x000000000000e36c       0x50 _build/nrf_memobj.o
+                0x000000000000e41c       0x50 _build/nrf_memobj.o
  .rodata.str1.1
-                0x000000000000e3bc        0x9 _build/nrf_pwr_mgmt.o
+                0x000000000000e46c        0x9 _build/nrf_pwr_mgmt.o
  .rodata.str1.1
-                0x000000000000e3c5      0x391 _build/nrf_strerror.o
+                0x000000000000e475      0x391 _build/nrf_strerror.o
  .rodata.m_unknown_str
-                0x000000000000e756       0x13 _build/nrf_strerror.o
- *fill*         0x000000000000e769        0x3 
+                0x000000000000e806       0x13 _build/nrf_strerror.o
+ *fill*         0x000000000000e819        0x3 
  .rodata.nrf_strerror_array
-                0x000000000000e76c      0x118 _build/nrf_strerror.o
+                0x000000000000e81c      0x118 _build/nrf_strerror.o
  .rodata.str1.1
-                0x000000000000e884        0x6 _build/nrfx_clock.o
+                0x000000000000e934        0x6 _build/nrfx_clock.o
  .rodata.nrf_gpio_pin_port_decode.str1.1
-                0x000000000000e88a       0x43 _build/nrfx_gpiote.o
+                0x000000000000e93a       0x43 _build/nrfx_gpiote.o
  .rodata.str1.1
-                0x000000000000e88a        0x7 _build/nrfx_gpiote.o
+                0x000000000000e93a        0x7 _build/nrfx_gpiote.o
  .rodata.UARTE0_UART0_IRQHandler.str1.1
-                0x000000000000e891       0x4f _build/nrfx_prs.o
+                0x000000000000e941       0x4f _build/nrfx_prs.o
  .rodata.str1.1
-                0x000000000000e8e0        0x4 _build/nrfx_prs.o
+                0x000000000000e990        0x4 _build/nrfx_prs.o
  .rodata.nrf_gpio_pin_port_decode.str1.1
-                0x000000000000e8e4       0x43 _build/nrfx_pwm.o
+                0x000000000000e994       0x43 _build/nrfx_pwm.o
  .rodata.nrf_pwm_sequence_set.str1.1
-                0x000000000000e8e4       0x42 _build/nrfx_pwm.o
+                0x000000000000e994       0x42 _build/nrfx_pwm.o
  .rodata.nrfx_pwm_init.str1.1
-                0x000000000000e926       0x8f _build/nrfx_pwm.o
+                0x000000000000e9d6       0x8f _build/nrfx_pwm.o
  .rodata.str1.1
-                0x000000000000e9b5        0x4 _build/nrfx_pwm.o
+                0x000000000000ea65        0x4 _build/nrfx_pwm.o
  .rodata.str1.1
-                0x000000000000e9b9        0x6 _build/nrfx_saadc.o
+                0x000000000000ea69        0x6 _build/nrfx_saadc.o
  .rodata.nrf_gpio_pin_port_decode.str1.1
-                0x000000000000e9bf       0x43 _build/nrfx_spim.o
+                0x000000000000ea6f       0x43 _build/nrfx_spim.o
  .rodata.SPIM2_SPIS2_SPI2_IRQHandler.str1.1
-                0x000000000000e9bf       0x4c _build/nrfx_spim.o
+                0x000000000000ea6f       0x4c _build/nrfx_spim.o
  .rodata.str1.1
-                0x000000000000ea0b        0x5 _build/nrfx_spim.o
+                0x000000000000eabb        0x5 _build/nrfx_spim.o
  .rodata.str1.1
-                0x000000000000ea10        0x6 _build/nrfx_timer.o
+                0x000000000000eac0        0x6 _build/nrfx_timer.o
  .rodata.twim_irq_handler.str1.1
-                0x000000000000ea16       0x4c _build/nrfx_twim.o
+                0x000000000000eac6       0x4c _build/nrfx_twim.o
  .rodata.str1.1
-                0x000000000000ea62        0x5 _build/nrfx_twim.o
+                0x000000000000eb12        0x5 _build/nrfx_twim.o
  .rodata.nrf_gpio_pin_port_decode.str1.1
-                0x000000000000ea67       0x43 _build/nrfx_uart.o
+                0x000000000000eb17       0x43 _build/nrfx_uart.o
  .rodata.nrfx_uart_init.str1.1
-                0x000000000000ea67       0x4c _build/nrfx_uart.o
+                0x000000000000eb17       0x4c _build/nrfx_uart.o
                                          0x90 (size before relaxing)
  .rodata.str1.1
-                0x000000000000eab3        0x5 _build/nrfx_uart.o
+                0x000000000000eb63        0x5 _build/nrfx_uart.o
  .rodata.nrf_gpio_pin_port_decode.str1.1
-                0x000000000000eab8       0x43 _build/nrfx_uarte.o
+                0x000000000000eb68       0x43 _build/nrfx_uarte.o
  .rodata.nrfx_uarte_init.str1.1
-                0x000000000000eab8       0x4d _build/nrfx_uarte.o
+                0x000000000000eb68       0x4d _build/nrfx_uarte.o
                                          0x91 (size before relaxing)
  .rodata.str1.1
-                0x000000000000eb05        0x6 _build/nrfx_uarte.o
- *fill*         0x000000000000eb0b        0x1 
+                0x000000000000ebb5        0x6 _build/nrfx_uarte.o
+ *fill*         0x000000000000ebbb        0x1 
  .rodata._ctype_
-                0x000000000000eb0c      0x101 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-ctype_.o)
-                0x000000000000eb0c                _ctype_
- *fill*         0x000000000000ec0d        0x3 
+                0x000000000000ebbc      0x101 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-ctype_.o)
+                0x000000000000ebbc                _ctype_
+ *fill*         0x000000000000ecbd        0x3 
  .rodata._global_impure_ptr
-                0x000000000000ec10        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-impure.o)
-                0x000000000000ec10                _global_impure_ptr
+                0x000000000000ecc0        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-impure.o)
+                0x000000000000ecc0                _global_impure_ptr
  .rodata._vfprintf_r.str1.4
-                0x000000000000ec14       0x42 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
- *fill*         0x000000000000ec56        0x2 
+                0x000000000000ecc4       0x42 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
+ *fill*         0x000000000000ed06        0x2 
  .rodata.blanks.1
-                0x000000000000ec58       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
+                0x000000000000ed08       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
  .rodata.zeroes.0
-                0x000000000000ec68       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
+                0x000000000000ed18       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfprintf.o)
  .rodata._dtoa_r.str1.4
-                0x000000000000ec78       0x7e /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
+                0x000000000000ed28       0x7e /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
                                          0x82 (size before relaxing)
- *fill*         0x000000000000ecf6        0x2 
+ *fill*         0x000000000000eda6        0x2 
  .rodata.__multadd.str1.4
-                0x000000000000ecf8       0x5b /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x000000000000eda8       0x5b /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
                                          0x6f (size before relaxing)
- *fill*         0x000000000000ed53        0x5 
+ *fill*         0x000000000000ee03        0x5 
  .rodata.__mprec_bigtens
-                0x000000000000ed58       0x28 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x000000000000ed58                __mprec_bigtens
+                0x000000000000ee08       0x28 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x000000000000ee08                __mprec_bigtens
  .rodata.__mprec_tens
-                0x000000000000ed80       0xc8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
-                0x000000000000ed80                __mprec_tens
- .rodata.p05.0  0x000000000000ee48        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x000000000000ee30       0xc8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+                0x000000000000ee30                __mprec_tens
+ .rodata.p05.0  0x000000000000eef8        0xc /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
  .rodata._vfiprintf_r.str1.4
-                0x000000000000ee54       0x2f /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+                0x000000000000ef04       0x2f /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
  .rodata.blanks.1
-                0x000000000000ee54       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+                0x000000000000ef04       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
  .rodata.zeroes.0
-                0x000000000000ee64       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+                0x000000000000ef14       0x10 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
  .rodata.__assert_func.str1.4
-                0x000000000000ee74       0x3f /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-assert.o)
+                0x000000000000ef24       0x3f /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-assert.o)
                                          0x43 (size before relaxing)
- *fill*         0x000000000000eeb3        0x1 
+ *fill*         0x000000000000ef63        0x1 
  .rodata._setlocale_r.str1.4
-                0x000000000000eeb4        0xa /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
+                0x000000000000ef64        0xa /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
                                           0xd (size before relaxing)
- *fill*         0x000000000000eebe        0x2 
+ *fill*         0x000000000000ef6e        0x2 
  .rodata.str1.4
-                0x000000000000eec0        0x2 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
+                0x000000000000ef70        0x2 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
  *(.eh_frame*)
- *fill*         0x000000000000eec2        0x2 
- .eh_frame      0x000000000000eec4        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .eh_frame      0x000000000000eec4        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+ *fill*         0x000000000000ef72        0x2 
+ .eh_frame      0x000000000000ef74        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x000000000000ef74        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
 
-.glue_7         0x000000000000eec8        0x0
- .glue_7        0x000000000000eec8        0x0 linker stubs
+.glue_7         0x000000000000ef78        0x0
+ .glue_7        0x000000000000ef78        0x0 linker stubs
 
-.glue_7t        0x000000000000eec8        0x0
- .glue_7t       0x000000000000eec8        0x0 linker stubs
+.glue_7t        0x000000000000ef78        0x0
+ .glue_7t       0x000000000000ef78        0x0 linker stubs
 
-.vfp11_veneer   0x000000000000eec8        0x0
- .vfp11_veneer  0x000000000000eec8        0x0 linker stubs
+.vfp11_veneer   0x000000000000ef78        0x0
+ .vfp11_veneer  0x000000000000ef78        0x0 linker stubs
 
-.v4_bx          0x000000000000eec8        0x0
- .v4_bx         0x000000000000eec8        0x0 linker stubs
+.v4_bx          0x000000000000ef78        0x0
+ .v4_bx         0x000000000000ef78        0x0 linker stubs
 
-.iplt           0x000000000000eec8        0x0
- .iplt          0x000000000000eec8        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x000000000000ef78        0x0
+ .iplt          0x000000000000ef78        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.pwr_mgmt_data  0x000000000000eec8        0x0
-                0x000000000000eec8                PROVIDE (__start_pwr_mgmt_data = .)
+.pwr_mgmt_data  0x000000000000ef78        0x0
+                0x000000000000ef78                PROVIDE (__start_pwr_mgmt_data = .)
  *(SORT_BY_NAME(.pwr_mgmt_data*))
-                0x000000000000eec8                PROVIDE (__stop_pwr_mgmt_data = .)
+                0x000000000000ef78                PROVIDE (__stop_pwr_mgmt_data = .)
 
 .log_const_data
-                0x000000000000eec8       0x70
-                0x000000000000eec8                PROVIDE (__start_log_const_data = .)
+                0x000000000000ef78       0x70
+                0x000000000000ef78                PROVIDE (__start_log_const_data = .)
  *(SORT_BY_NAME(.log_const_data*))
  .log_const_data_CLOCK
-                0x000000000000eec8        0x8 _build/nrfx_clock.o
-                0x000000000000eec8                m_nrf_log_CLOCK_logs_data_const
+                0x000000000000ef78        0x8 _build/nrfx_clock.o
+                0x000000000000ef78                m_nrf_log_CLOCK_logs_data_const
  .log_const_data_GPIOTE
-                0x000000000000eed0        0x8 _build/nrfx_gpiote.o
-                0x000000000000eed0                m_nrf_log_GPIOTE_logs_data_const
+                0x000000000000ef80        0x8 _build/nrfx_gpiote.o
+                0x000000000000ef80                m_nrf_log_GPIOTE_logs_data_const
  .log_const_data_PRS
-                0x000000000000eed8        0x8 _build/nrfx_prs.o
-                0x000000000000eed8                m_nrf_log_PRS_logs_data_const
+                0x000000000000ef88        0x8 _build/nrfx_prs.o
+                0x000000000000ef88                m_nrf_log_PRS_logs_data_const
  .log_const_data_PWM
-                0x000000000000eee0        0x8 _build/nrfx_pwm.o
-                0x000000000000eee0                m_nrf_log_PWM_logs_data_const
+                0x000000000000ef90        0x8 _build/nrfx_pwm.o
+                0x000000000000ef90                m_nrf_log_PWM_logs_data_const
  .log_const_data_SAADC
-                0x000000000000eee8        0x8 _build/nrfx_saadc.o
-                0x000000000000eee8                m_nrf_log_SAADC_logs_data_const
+                0x000000000000ef98        0x8 _build/nrfx_saadc.o
+                0x000000000000ef98                m_nrf_log_SAADC_logs_data_const
  .log_const_data_SPIM
-                0x000000000000eef0        0x8 _build/nrfx_spim.o
-                0x000000000000eef0                m_nrf_log_SPIM_logs_data_const
+                0x000000000000efa0        0x8 _build/nrfx_spim.o
+                0x000000000000efa0                m_nrf_log_SPIM_logs_data_const
  .log_const_data_TIMER
-                0x000000000000eef8        0x8 _build/nrfx_timer.o
-                0x000000000000eef8                m_nrf_log_TIMER_logs_data_const
+                0x000000000000efa8        0x8 _build/nrfx_timer.o
+                0x000000000000efa8                m_nrf_log_TIMER_logs_data_const
  .log_const_data_TWIM
-                0x000000000000ef00        0x8 _build/nrfx_twim.o
-                0x000000000000ef00                m_nrf_log_TWIM_logs_data_const
+                0x000000000000efb0        0x8 _build/nrfx_twim.o
+                0x000000000000efb0                m_nrf_log_TWIM_logs_data_const
  .log_const_data_UART
-                0x000000000000ef08        0x8 _build/nrfx_uart.o
-                0x000000000000ef08                m_nrf_log_UART_logs_data_const
+                0x000000000000efb8        0x8 _build/nrfx_uart.o
+                0x000000000000efb8                m_nrf_log_UART_logs_data_const
  .log_const_data_UARTE
-                0x000000000000ef10        0x8 _build/nrfx_uarte.o
-                0x000000000000ef10                m_nrf_log_UARTE_logs_data_const
+                0x000000000000efc0        0x8 _build/nrfx_uarte.o
+                0x000000000000efc0                m_nrf_log_UARTE_logs_data_const
  .log_const_data_app
-                0x000000000000ef18        0x8 _build/nrf_log_frontend.o
-                0x000000000000ef18                m_nrf_log_app_logs_data_const
+                0x000000000000efc8        0x8 _build/nrf_log_frontend.o
+                0x000000000000efc8                m_nrf_log_app_logs_data_const
  .log_const_data_clock
-                0x000000000000ef20        0x8 _build/nrf_drv_clock.o
-                0x000000000000ef20                m_nrf_log_clock_logs_data_const
+                0x000000000000efd0        0x8 _build/nrf_drv_clock.o
+                0x000000000000efd0                m_nrf_log_clock_logs_data_const
  .log_const_data_hardfault
-                0x000000000000ef28        0x8 _build/hardfault_implementation.o
-                0x000000000000ef28                m_nrf_log_hardfault_logs_data_const
+                0x000000000000efd8        0x8 _build/hardfault_implementation.o
+                0x000000000000efd8                m_nrf_log_hardfault_logs_data_const
  .log_const_data_pwr_mgmt
-                0x000000000000ef30        0x8 _build/nrf_pwr_mgmt.o
-                0x000000000000ef30                m_nrf_log_pwr_mgmt_logs_data_const
-                0x000000000000ef38                PROVIDE (__stop_log_const_data = .)
+                0x000000000000efe0        0x8 _build/nrf_pwr_mgmt.o
+                0x000000000000efe0                m_nrf_log_pwr_mgmt_logs_data_const
+                0x000000000000efe8                PROVIDE (__stop_log_const_data = .)
 
-.nrf_balloc     0x000000000000ef38       0x14
+.nrf_balloc     0x000000000000efe8       0x14
                 [!provide]                        PROVIDE (__start_nrf_balloc = .)
  *(.nrf_balloc)
- .nrf_balloc    0x000000000000ef38       0x14 _build/nrf_log_frontend.o
-                0x000000000000ef38                log_mempool
+ .nrf_balloc    0x000000000000efe8       0x14 _build/nrf_log_frontend.o
+                0x000000000000efe8                log_mempool
                 [!provide]                        PROVIDE (__stop_nrf_balloc = .)
 
-.log_backends   0x000000000000ef4c       0x10
- .log_backends  0x000000000000ef4c       0x10 _build/nrf_log_default_backends.o
+.log_backends   0x000000000000effc       0x10
+ .log_backends  0x000000000000effc       0x10 _build/nrf_log_default_backends.o
 
-.nrf_queue      0x000000000000ef5c        0x0
+.nrf_queue      0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_nrf_queue = .)
  *(.nrf_queue)
                 [!provide]                        PROVIDE (__stop_nrf_queue = .)
 
-.cli_command    0x000000000000ef5c        0x0
+.cli_command    0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_cli_command = .)
  *(.cli_command)
                 [!provide]                        PROVIDE (__stop_cli_command = .)
 
 .sdh_stack_observers
-                0x000000000000ef5c        0x0
+                0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_sdh_stack_observers = .)
  *(SORT_BY_NAME(.sdh_stack_observers*))
                 [!provide]                        PROVIDE (__stop_sdh_stack_observers = .)
 
 .sdh_req_observers
-                0x000000000000ef5c        0x0
+                0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_sdh_req_observers = .)
  *(SORT_BY_NAME(.sdh_req_observers*))
                 [!provide]                        PROVIDE (__stop_sdh_req_observers = .)
 
 .sdh_state_observers
-                0x000000000000ef5c        0x0
+                0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_sdh_state_observers = .)
  *(SORT_BY_NAME(.sdh_state_observers*))
                 [!provide]                        PROVIDE (__stop_sdh_state_observers = .)
 
 .sdh_ant_observers
-                0x000000000000ef5c        0x0
+                0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_sdh_ant_observers = .)
  *(SORT_BY_NAME(.sdh_ant_observers*))
                 [!provide]                        PROVIDE (__stop_sdh_ant_observers = .)
 
 .sdh_ble_observers
-                0x000000000000ef5c        0x0
+                0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_sdh_ble_observers = .)
  *(SORT_BY_NAME(.sdh_ble_observers*))
                 [!provide]                        PROVIDE (__stop_sdh_ble_observers = .)
 
 .sdh_soc_observers
-                0x000000000000ef5c        0x0
+                0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_sdh_soc_observers = .)
  *(SORT_BY_NAME(.sdh_soc_observers*))
                 [!provide]                        PROVIDE (__stop_sdh_soc_observers = .)
 
-.crypto_data    0x000000000000ef5c        0x0
+.crypto_data    0x000000000000f00c        0x0
                 [!provide]                        PROVIDE (__start_crypto_data = .)
  *(SORT_BY_NAME(.crypto_data*))
                 [!provide]                        PROVIDE (__stop_crypto_data = .)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000000000ef5c                __exidx_start = .
+                0x000000000000f00c                __exidx_start = .
 
-.ARM.exidx      0x000000000000ef5c        0x8
+.ARM.exidx      0x000000000000f00c        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x000000000000ef5c        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .ARM.exidx     0x000000000000f00c        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
                                          0x10 (size before relaxing)
- .ARM.exidx     0x000000000000ef64        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x000000000000f014        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
                                           0x8 (size before relaxing)
-                0x000000000000ef64                __exidx_end = .
-                0x000000000000ef64                __etext = .
+                0x000000000000f014                __exidx_end = .
+                0x000000000000f014                __etext = .
 
-.rel.dyn        0x000000000000ef64        0x0
- .rel.iplt      0x000000000000ef64        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x000000000000f014        0x0
+ .rel.iplt      0x000000000000f014        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x0000000020000000      0x9e0 load address 0x000000000000ef64
+.data           0x0000000020000000      0x9e0 load address 0x000000000000f014
                 0x0000000020000000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -2474,7 +2479,7 @@ END GROUP
                 0x0000000000001000                FLASH_PAGE_SIZE = 0x1000
                 0x0000000000000004                FLASH_DATA_PAGES_USED = 0x4
 
-.igot.plt       0x00000000200009e0        0x0 load address 0x000000000000f944
+.igot.plt       0x00000000200009e0        0x0 load address 0x000000000000f9f4
  .igot.plt      0x00000000200009e0        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x00000000200009e0                . = ALIGN (0x4)
 
@@ -2500,7 +2505,7 @@ END GROUP
  *(.cli_sorted_cmd_ptrs)
                 [!provide]                        PROVIDE (__stop_cli_sorted_cmd_ptrs = .)
 
-.bss            0x00000000200009e0    0x10318 load address 0x000000000000f944
+.bss            0x00000000200009e0    0x10318 load address 0x000000000000f9f4
                 0x00000000200009e0                . = ALIGN (0x4)
                 0x00000000200009e0                __bss_start__ = .
  *(.bss*)
@@ -2617,8 +2622,8 @@ END GROUP
                 0x0000000020020000                PROVIDE (__stack = __StackTop)
                 0x0000000000000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
                 0x00000000000009e0                DataInitFlashUsed = (__bss_start__ - __data_start__)
-                0x000000000000ef64                CodeFlashUsed = (__etext - ORIGIN (FLASH))
-                0x000000000000f944                TotalFlashUsed = (CodeFlashUsed + DataInitFlashUsed)
+                0x000000000000f014                CodeFlashUsed = (__etext - ORIGIN (FLASH))
+                0x000000000000f9f4                TotalFlashUsed = (CodeFlashUsed + DataInitFlashUsed)
                 0x0000000000000001                ASSERT ((TotalFlashUsed <= LENGTH (FLASH)), region FLASH overflowed with .data and user data)
 OUTPUT(_build/src_sdk16_blank.elf elf32-littlearm)
 LOAD linker stubs

@@ -76,4 +76,8 @@ _build/main.o: main.c audio.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/drivers/include/nrfx_pwm.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_pwm.h \
  /Users/richard/Documents/Classes/CE346/ce346-final-project/boards/microbit_v2/./microbit_v2.h \
- ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_gpio.h clap.h
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_gpio.h clap.h \
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/components/libraries/timer/app_timer.h \
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/components/libraries/util/app_error.h \
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/drivers/include/nrfx_saadc.h \
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_saadc.h
