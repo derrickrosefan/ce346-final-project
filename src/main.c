@@ -13,6 +13,8 @@ int main(void)
   nrf_gpio_cfg_output(EDGE_P0);
   nrf_gpio_pin_set(EDGE_P0);
   nrf_gpio_cfg_input(EDGE_P1, NRF_GPIO_PIN_PULLDOWN);
+  nrf_gpio_cfg_output(EDGE_P2); //wire to "2" on keypad
+  nrf_gpio_pin_set(EDGE_P2);
   while (true)
   {
     if (nrf_gpio_pin_read(EDGE_P1))
