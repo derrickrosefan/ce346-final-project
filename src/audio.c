@@ -7,7 +7,7 @@ static const nrfx_pwm_t PWM_INST = NRFX_PWM_INSTANCE(0);
 void pwm_init(void)
 {
     nrfx_pwm_config_t pwm_config = {
-        .output_pins = {SPEAKER_OUT, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED},
+        .output_pins = {EDGE_P10, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED},
         .base_clock = NRF_PWM_CLK_16MHz,
         .count_mode = NRF_PWM_MODE_UP,
         .top_value = COUNTERTOP,
