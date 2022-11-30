@@ -31,7 +31,7 @@ _build/audio.o: audio.c audio.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_intsup.h \
- constants.h ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/mdk/nrf.h \
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/mdk/nrf.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/mdk/nrf52833.h \
  ../nrf52x-base//lib/CMSIS_5/CMSIS/Core/Include/core_cm4.h \
  ../nrf52x-base//lib/CMSIS_5/CMSIS/Core/Include/cmsis_version.h \

@@ -31,7 +31,7 @@ _build/main.o: main.c audio.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_intsup.h \
- constants.h ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/mdk/nrf.h \
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/mdk/nrf.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/mdk/nrf52833.h \
  ../nrf52x-base//lib/CMSIS_5/CMSIS/Core/Include/core_cm4.h \
  ../nrf52x-base//lib/CMSIS_5/CMSIS/Core/Include/cmsis_version.h \
@@ -76,9 +76,7 @@ _build/main.o: main.c audio.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/drivers/include/nrfx_pwm.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_pwm.h \
  /Users/richard/Documents/Classes/CE346/ce346-final-project/boards/microbit_v2/./microbit_v2.h \
- ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_gpio.h clap.h \
- snare.h \
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_gpio.h input.h \
+ clap.h hi_hat.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/components/libraries/timer/app_timer.h \
- ../nrf52x-base//sdk/nrf5_sdk_16.0.0/components/libraries/util/app_error.h \
- ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/drivers/include/nrfx_saadc.h \
- ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_saadc.h
+ ../nrf52x-base//sdk/nrf5_sdk_16.0.0/components/libraries/util/app_error.h

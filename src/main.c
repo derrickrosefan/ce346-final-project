@@ -1,38 +1,40 @@
 #include <audio.h>
+#include <input.h>
 #include <clap.h>
-#include <snare.h>
+#include <hi_hat.h>
 
-#include "app_timer.h"
-#include "nrf_delay.h"
-#include "nrfx_saadc.h"
-#include "microbit_v2.h"
+#include <app_timer.h>
+#include <nrf_delay.h>
+#include <microbit_v2.h>
 
-// EDGE_P0 => Row 1
-// EDGE_P1 => Col 1
-// EDGE_P2 => Col 2
+Button MPC_BUTTON_1 = {ROW_1, COL_1};
+Button MPC_BUTTON_2 = {ROW_1, COL_2};
+Button MPC_BUTTON_3 = {ROW_1, COL_3};
+Button MPC_BUTTON_4 = {ROW_2, COL_1};
 
 int main(void)
 {
   printf("starting our application\n");
   audio_init();
-  nrf_gpio_cfg_output(EDGE_P0);
-  nrf_gpio_pin_set(EDGE_P0);
-  nrf_gpio_cfg_input(EDGE_P1, NRF_GPIO_PIN_PULLDOWN);
-  nrf_gpio_cfg_input(EDGE_P2, NRF_GPIO_PIN_PULLDOWN);
+  input_init();
   while (true)
   {
-    if (nrf_gpio_pin_read(EDGE_P1))
+    if (is_button_pressed(MPC_BUTTON_1))
     {
-      printf("press button 1 - play clap\n");
       play_audio_sample(clap, clap_size);
-      nrf_delay_ms(1000);
+      nrf_delay_ms(100);
     }
 
-    if (nrf_gpio_pin_read(EDGE_P2))
+    if (is_button_pressed(MPC_BUTTON_2))
     {
-      printf("press button 2 - play snare\n");
-      play_audio_sample(snare, snare_size);
-      nrf_delay_ms(1000);
+      play_audio_sample(hi_hat, hi_hat_size);
+      nrf_delay_ms(100);
+    }
+
+    if (is_button_pressed(MPC_BUTTON_3))
+    {
+      play_audio_sample(hi_hat, hi_hat_size);
+      nrf_delay_ms(100);
     }
     nrf_delay_ms(50);
   }

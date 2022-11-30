@@ -1,5 +1,13 @@
 #include <audio.h>
 
+// Audio samples must be at 44100 Hz
+#define SAMPLING_FREQUENCY 44100
+// Audio sample max value is 255 - we store each audio value as char
+#define SAMPLE_MAX_VALUE 255
+// Buffer size for PWM is 32000 bytes (audio samples longer than 32000 bytes will be truncated)
+#define BUFFER_SIZE 32000
+#define NRF_CLOCK_FREQUENCY 16000000
+
 static uint16_t samples[BUFFER_SIZE] = {0};
 static const float COUNTERTOP = (float)NRF_CLOCK_FREQUENCY / (float)SAMPLING_FREQUENCY;
 static const nrfx_pwm_t PWM_INST = NRFX_PWM_INSTANCE(0);
@@ -28,10 +36,9 @@ static uint16_t min(uint16_t num1, uint16_t num2)
 
 void play_audio_sample(const unsigned char *audio_sample, uint16_t audio_sample_size)
 {
-
     for (uint16_t i = 0; i < min(BUFFER_SIZE, audio_sample_size); i++)
     {
-        samples[i] = (uint16_t)((float)audio_sample[i] / (float)SAMPLE_MAX_VALUE) * COUNTERTOP;
+        samples[i] = (uint16_t)(((float)audio_sample[i] / (float)SAMPLE_MAX_VALUE) * COUNTERTOP);
     }
     nrf_pwm_sequence_t pwm_sequence = {
         .values.p_common = samples,
