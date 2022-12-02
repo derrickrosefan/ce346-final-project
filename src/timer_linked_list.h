@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #include "nrf.h"
+#include "stdlib.h"
 
 // -- List types
 
@@ -24,23 +25,23 @@ typedef struct node_t
 // -- List functions
 
 // clears list
-void clear_list(void);
+void clear_list(node_t **linked_list);
 
 // Insert node at the correct place in the linked list based on increasing
 //  node->timer_value. The node_t must be malloc'd before being added.
-void list_insert_sorted(node_t *node);
+void list_insert_sorted(node_t *node, node_t **linked_list);
 
 // Return the first node in the linked list without removing it. This value may
 //  be NULL if the list is empty.
-node_t *list_get_first();
+node_t *list_get_first(node_t **linked_list);
 
 // Remove the first node from the linked list and return it. This value may be
 //  NULL if the list is empty.
-node_t *list_remove_first();
+node_t *list_remove_first(node_t **linked_list);
 
 // Remove the specified node from the linked list. Note that the memory for the
 //  node is NOT automatically freed.
-void list_remove(node_t *node);
+void list_remove(node_t *node, node_t **linked_list);
 
 // Print the linked list for debugging.
-void list_print();
+void list_print(node_t **linked_list);

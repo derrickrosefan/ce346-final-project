@@ -12,18 +12,18 @@
 
 #include "timer_linked_list.h"
 
-// the linked list
-static node_t *linked_list = NULL;
-
 // -- External functions
 
-void clear_list()
+void clear_list(node_t **linked_list)
 {
-    linked_list = NULL;
+    while (list_get_first(linked_list))
+    {
+        free(list_remove_first(linked_list));
+    };
 }
 
 // insert item into list sorted by `timer_value`
-void list_insert_sorted(node_t *node)
+void list_insert_sorted(node_t *node, node_t **linked_list)
 {
 
     // fault if given a NULL node
@@ -35,26 +35,26 @@ void list_insert_sorted(node_t *node)
     }
 
     // node was valid, let's insert it
-    if (linked_list == NULL)
+    if (*linked_list == NULL)
     {
         // list was previously empty
         node->next = NULL;
-        linked_list = node;
+        *linked_list = node;
     }
     else
     {
         // list is not empty
-        if (node->timer_value < linked_list->timer_value)
+        if (node->timer_value < (*linked_list)->timer_value)
         {
             // node is new head
-            node->next = linked_list;
-            linked_list = node;
+            node->next = *linked_list;
+            *linked_list = node;
         }
         else
         {
             // node is somewhere after the head
-            node_t *prev_node = linked_list;
-            node_t *curr_node = linked_list->next;
+            node_t *prev_node = *linked_list;
+            node_t *curr_node = (*linked_list)->next;
             while (curr_node != NULL && curr_node->timer_value < node->timer_value)
             {
                 // iterate until end of list or the current node has a greater value
@@ -70,24 +70,24 @@ void list_insert_sorted(node_t *node)
 }
 
 // return first element without removing
-node_t *list_get_first()
+node_t *list_get_first(node_t **linked_list)
 {
-    return linked_list;
+    return *linked_list;
 }
 
 // remove and return first element
-node_t *list_remove_first()
+node_t *list_remove_first(node_t **linked_list)
 {
-    node_t *head = linked_list;
+    node_t *head = *linked_list;
     if (head != NULL)
     {
-        linked_list = head->next;
+        *linked_list = head->next;
     }
     return head;
 }
 
 // remove an arbitrary node if in list
-void list_remove(node_t *node)
+void list_remove(node_t *node, node_t **linked_list)
 {
     // fault if given a NULL node
     if (node == NULL)
@@ -98,20 +98,20 @@ void list_remove(node_t *node)
     }
 
     // check for empty list
-    if (linked_list != NULL)
+    if (*linked_list != NULL)
     {
 
         // check if this is the first node
-        if (linked_list == node)
+        if (*linked_list == node)
         {
             // it was the head, remove it
-            linked_list = linked_list->next;
+            *linked_list = (*linked_list)->next;
         }
         else
         {
             // it was not the head
-            node_t *prev_node = linked_list;
-            node_t *curr_node = linked_list->next;
+            node_t *prev_node = (*linked_list);
+            node_t *curr_node = (*linked_list)->next;
             while (curr_node != NULL && curr_node != node)
             {
                 // iterate list until the end or the node we want
@@ -129,10 +129,10 @@ void list_remove(node_t *node)
 }
 
 // print contents of list
-void list_print()
+void list_print(node_t **linked_list)
 {
     // handle an empty list
-    if (linked_list == NULL)
+    if (*linked_list == NULL)
     {
         printf("[ EMPTY ]\n");
     }
@@ -140,10 +140,10 @@ void list_print()
     {
 
         // print first node
-        printf("[ (%lu)", linked_list->timer_value);
+        printf("[ (%lu)", (*linked_list)->timer_value);
 
         // print the other nodes
-        node_t *curr_node = linked_list->next;
+        node_t *curr_node = (*linked_list)->next;
         while (curr_node != NULL)
         {
             printf(" -> (%lu)", curr_node->timer_value);

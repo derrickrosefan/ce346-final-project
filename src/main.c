@@ -6,7 +6,7 @@
 #include <clap.h>
 #include <hi_hat.h>
 #include <timer_linked_list.h>
-#include <stdlib.h>
+#include <pattern.h>
 
 #include <nrf_delay.h>
 #include <microbit_v2.h>
@@ -22,27 +22,6 @@ Button PLAY_BUTTON = {ROW_2, COL_3};   // 6
 bool IS_RECORDING = false;
 bool IS_PLAYING_PATTERN = false;
 
-void add_to_pattern(const unsigned char *audio_sample, uint16_t audio_sample_size)
-{
-  printf("adding to patttern right now!\n");
-  node_t *sound = (node_t *)malloc(sizeof(node_t));
-  sound->audio_sample = audio_sample;
-  sound->audio_sample_size = audio_sample_size;
-  sound->timer_value = get_stopwatch_time();
-  list_insert_sorted(sound);
-}
-
-void play_pattern()
-{
-  if (list_get_first() && list_get_first()->timer_value < get_stopwatch_time())
-  {
-    node_t *sound = list_remove_first();
-    play_audio_sample(sound->audio_sample, sound->audio_sample_size);
-    // no need to free, just restart timer when get to end of linked list.
-    free(sound);
-  }
-}
-
 int main(void)
 {
   printf("starting our application\n");
@@ -50,24 +29,26 @@ int main(void)
   input_init();
   stopwatch_init();
 
-  while (true)
+  while (true) // Polling
   {
-    if (is_button_pressed(MPC_BUTTON_1))
+    if (is_button_pressed(MPC_BUTTON_1)) // if button1 is pressed
     {
-      if (IS_RECORDING)
+      if (IS_RECORDING) // if we are on RECORDING mode
       {
-        add_to_pattern(clap, clap_size);
+        add_to_pattern(clap, clap_size); // add button1 sound (clap) to recording
       }
-      play_audio_sample(clap, clap_size);
+      play_audio_sample(clap, clap_size); // play clap sound
+      nrf_delay_ms(100);
     }
 
-    if (is_button_pressed(MPC_BUTTON_2))
+    if (is_button_pressed(MPC_BUTTON_2)) // if button 2 is pressed
     {
-      if (IS_RECORDING)
+      if (IS_RECORDING) // if we are on RECORDING mode
       {
         add_to_pattern(hi_hat, hi_hat_size);
       }
       play_audio_sample(hi_hat, hi_hat_size);
+      nrf_delay_ms(100);
     }
 
     if (is_button_pressed(MPC_BUTTON_3))
@@ -77,6 +58,7 @@ int main(void)
         add_to_pattern(snare, snare_size);
       }
       play_audio_sample(snare, snare_size);
+      nrf_delay_ms(100);
     }
 
     if (is_button_pressed(MPC_BUTTON_4))
@@ -86,16 +68,25 @@ int main(void)
         add_to_pattern(kick, kick_size);
       }
       play_audio_sample(kick, kick_size);
+      nrf_delay_ms(100);
     }
 
-    if (is_button_pressed(PLAY_BUTTON) && !is_button_pressed(RECORD_BUTTON) && list_get_first())
+    if (is_button_pressed(PLAY_BUTTON) && !is_button_pressed(RECORD_BUTTON)) // if PLAY button is pressed (and not recording), set PLAYING boolean to true
     {
-      printf("playing pattern!\n");
-      IS_PLAYING_PATTERN = true;
-      reset_stopwatch();
+      if (is_pattern_empty())
+      {
+        swap_pattern();
+      }
+      if (!is_pattern_empty())
+      {
+        printf("playing pattern!\n");
+        IS_PLAYING_PATTERN = true;
+        reset_stopwatch();
+      }
+      nrf_delay_ms(100);
     }
 
-    if (IS_PLAYING_PATTERN)
+    if (IS_PLAYING_PATTERN) //
     {
       play_pattern();
     }
@@ -108,15 +99,17 @@ int main(void)
         nrf_delay_ms(200);
         IS_PLAYING_PATTERN = false;
         reset_stopwatch();
-        clear_list();
+        clear_pattern();
       }
       else
       {
         printf("stopping record!\n");
+        // list_print(&pattern_linked_list_primary);
       }
       IS_RECORDING = !IS_RECORDING;
+      nrf_delay_ms(100);
     }
 
-    nrf_delay_ms(150);
+    nrf_delay_ms(25);
   }
 }

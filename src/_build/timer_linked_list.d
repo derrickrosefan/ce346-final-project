@@ -74,4 +74,7 @@ _build/timer_linked_list.o: timer_linked_list.c \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/components/libraries/util/sdk_errors.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/components/libraries/util/sdk_resources.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/drivers/nrfx_errors.h \
- timer_linked_list.h
+ timer_linked_list.h \
+ /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h \
+ /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/stdlib.h \
+ /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/alloca.h
