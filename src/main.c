@@ -4,6 +4,7 @@
 #include <kick.h>
 #include <snare.h>
 #include <clap.h>
+#include <led.h>
 #include <hi_hat.h>
 #include <timer_linked_list.h>
 #include <pattern.h>
@@ -28,9 +29,11 @@ int main(void)
   audio_init();
   input_init();
   stopwatch_init();
+  led_matrix_init();
 
   while (true) // Polling
   {
+    // draw_char('c');
     if (is_button_pressed(MPC_BUTTON_1)) // if button1 is pressed
     {
       if (IS_RECORDING) // if we are on RECORDING mode
@@ -38,6 +41,7 @@ int main(void)
         add_to_pattern(clap, clap_size); // add button1 sound (clap) to recording
       }
       play_audio_sample(clap, clap_size); // play clap sound
+      // draw_char('c');
       nrf_delay_ms(100);
     }
 
