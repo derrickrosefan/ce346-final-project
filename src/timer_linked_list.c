@@ -17,6 +17,11 @@ static node_t *linked_list = NULL;
 
 // -- External functions
 
+void clear_list()
+{
+    linked_list = NULL;
+}
+
 // insert item into list sorted by `timer_value`
 void list_insert_sorted(node_t *node)
 {

@@ -23,6 +23,9 @@ typedef struct node_t
 
 // -- List functions
 
+// clears list
+void clear_list(void);
+
 // Insert node at the correct place in the linked list based on increasing
 //  node->timer_value. The node_t must be malloc'd before being added.
 void list_insert_sorted(node_t *node);

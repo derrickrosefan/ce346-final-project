@@ -3,3 +3,4 @@
 
 void stopwatch_init(void);
 float get_stopwatch_time(void);
+void reset_stopwatch(void);

@@ -77,10 +77,10 @@ _build/main.o: main.c audio.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_pwm.h \
  /Users/richard/Documents/Classes/CE346/ce346-final-project/boards/microbit_v2/./microbit_v2.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_gpio.h input.h \
- bass.h kick.h snare.h clap.h hi_hat.h recorder.h \
+ bass.h kick.h snare.h clap.h hi_hat.h timer_linked_list.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/stdlib.h \
  /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/alloca.h \
- timer_linked_list.h stopwatch.h \
+ stopwatch.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/drivers/include/nrfx_timer.h \
  ../nrf52x-base//sdk/nrf5_sdk_16.0.0/modules/nrfx/hal/nrf_timer.h

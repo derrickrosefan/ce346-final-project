@@ -6,6 +6,11 @@ void stopwatch_handler(nrf_timer_event_t event, void *context)
 {
 }
 
+void reset_stopwatch()
+{
+    nrfx_timer_clear(&PATTERN_PLAYBACK_STOPWATCH);
+}
+
 void stopwatch_init()
 {
     nrfx_timer_config_t stopwatch_config = {
