@@ -1,4 +1,4 @@
-#include <stopwatch.h>
+#include "stopwatch.h"
 
 static nrfx_timer_t PATTERN_PLAYBACK_STOPWATCH = NRFX_TIMER_INSTANCE(0);
 

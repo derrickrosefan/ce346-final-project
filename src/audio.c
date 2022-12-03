@@ -1,4 +1,4 @@
-#include <audio.h>
+#include "audio.h"
 
 // Audio samples must be at 44100 Hz
 #define SAMPLING_FREQUENCY 44100
@@ -8,6 +8,8 @@
 #define BUFFER_SIZE 32000
 #define NRF_CLOCK_FREQUENCY 16000000
 
+#define AUDIO_OUTPUT_PIN EDGE_P11
+
 static uint16_t samples[BUFFER_SIZE] = {0};
 static const float COUNTERTOP = (float)NRF_CLOCK_FREQUENCY / (float)SAMPLING_FREQUENCY;
 static const nrfx_pwm_t PWM_INST = NRFX_PWM_INSTANCE(0);
@@ -15,7 +17,7 @@ static const nrfx_pwm_t PWM_INST = NRFX_PWM_INSTANCE(0);
 void pwm_init(void)
 {
     nrfx_pwm_config_t pwm_config = {
-        .output_pins = {EDGE_P10, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED},
+        .output_pins = {AUDIO_OUTPUT_PIN, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED, NRFX_PWM_PIN_NOT_USED},
         .base_clock = NRF_PWM_CLK_16MHz,
         .count_mode = NRF_PWM_MODE_UP,
         .top_value = COUNTERTOP,
