@@ -1,6 +1,4 @@
-#include <pattern.h>
-#include <audio.h>
-#include <stopwatch.h>
+#include "pattern.h"
 
 node_t *pattern_linked_list_primary = NULL;
 node_t *pattern_linked_list_secondary = NULL;

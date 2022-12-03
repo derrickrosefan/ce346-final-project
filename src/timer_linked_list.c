@@ -140,13 +140,13 @@ void list_print(node_t **linked_list)
     {
 
         // print first node
-        printf("[ (%lu)", (*linked_list)->timer_value);
+        printf("[ (%f)", (*linked_list)->timer_value);
 
         // print the other nodes
         node_t *curr_node = (*linked_list)->next;
         while (curr_node != NULL)
         {
-            printf(" -> (%lu)", curr_node->timer_value);
+            printf(" -> (%f)", curr_node->timer_value);
             curr_node = curr_node->next;
         }
         printf(" ]\n");
