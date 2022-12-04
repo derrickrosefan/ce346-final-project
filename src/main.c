@@ -61,7 +61,7 @@ int main(void)
       }
     }
 
-    if (is_button_pressed(PLAY_BUTTON) && !is_button_pressed(RECORD_BUTTON)) // if PLAY button is pressed (and not recording), set PLAYING boolean to true
+    if (is_button_pressed(PLAY_BUTTON) && !IS_RECORDING && !IS_PLAYING_PATTERN) // if PLAY button is pressed (and not recording), set PLAYING boolean to true
     {
       if (!is_pattern_empty()) // If pattern linked list is empty
       {
@@ -85,7 +85,7 @@ int main(void)
       }
     }
 
-    if (is_button_pressed(RECORD_BUTTON)) // if record button is pressed
+    if (is_button_pressed(RECORD_BUTTON) && !IS_PLAYING_PATTERN) // if record button is pressed
     {
       if (!IS_RECORDING) // if not recording, start recording (and turn on LED)
       {
